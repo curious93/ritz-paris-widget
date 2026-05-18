@@ -1,10 +1,10 @@
 import { type SliderState } from '../types/drink'
 
 /** Präfix-Kürzel pro Regler-Position für lesbaren Code. */
+const MODUS_CODE   = ['NA', 'LW', 'SG'] as const
 const ABEND_CODE   = ['ST', 'EL', 'GL'] as const
 const HALTUNG_CODE = ['SA', 'PR', 'CH'] as const
 const SPUR_CODE    = ['FR', 'BL', 'GH'] as const
-const MODUS_CODE   = ['NA', 'LW', 'SG'] as const
 
 /**
  * Generiert einen kurzen, deterministischen persönlichen Code aus dem SliderState.
@@ -21,8 +21,8 @@ const MODUS_CODE   = ['NA', 'LW', 'SG'] as const
  */
 export const generateCode = (state: SliderState): string =>
   [
-    ABEND_CODE[state[0]],
-    HALTUNG_CODE[state[1]],
-    SPUR_CODE[state[2]],
-    MODUS_CODE[state[3]],
+    MODUS_CODE[state[0]],
+    ABEND_CODE[state[1]],
+    HALTUNG_CODE[state[2]],
+    SPUR_CODE[state[3]],
   ].join('-')

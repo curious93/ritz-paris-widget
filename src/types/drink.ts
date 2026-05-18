@@ -3,14 +3,14 @@
  * Jeder Wert ist 0 | 1 | 2 (die drei Positionen des Reglers).
  */
 export type SliderState = [
-  /** Regler 1: Wie beginnt Ihr Abend? 0=Still, 1=Elegant, 2=Glanzvoll */
-  abend: 0 | 1 | 2,
-  /** Regler 2: Welche Haltung? 0=Sanft, 1=Präzise, 2=Charaktervoll */
-  haltung: 0 | 1 | 2,
-  /** Regler 3: Welche Spur bleibt? 0=Frisch, 1=Blumig, 2=Geheimnisvoll */
-  spur: 0 | 1 | 2,
-  /** Regler 4: Ihr Modus. 0=Sans alcool, 1=Leicht, 2=Signature 18+ */
+  /** Regler 1: Ihr Modus. 0=Sans alcool, 1=Leicht, 2=Signature 18+ */
   modus: 0 | 1 | 2,
+  /** Regler 2: Wie beginnt Ihr Abend? 0=Still, 1=Elegant, 2=Glanzvoll */
+  abend: 0 | 1 | 2,
+  /** Regler 3: Welche Haltung? 0=Sanft, 1=Präzise, 2=Charaktervoll */
+  haltung: 0 | 1 | 2,
+  /** Regler 4: Welche Aromatik? 0=Frisch, 1=Blumig, 2=Geheimnisvoll */
+  spur: 0 | 1 | 2,
 ]
 
 /**

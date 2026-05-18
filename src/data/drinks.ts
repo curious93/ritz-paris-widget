@@ -16,7 +16,13 @@ interface AnchorDrink extends DrinkResult {
 const SEASONAL_NOTE =
   'Die finale Komposition hängt von Saison und Verfügbarkeit ab. Das Barteam des Ritz Paris verfeinert den Drink vor Ort.'
 
-// ─── Sans alcool (Modus 0) ─────────────────────────────────────────────────
+// SliderState-Reihenfolge: [modus, abend, haltung, spur]
+// modus:   0=sans alcool, 1=low-abv, 2=signature
+// abend:   0=still, 1=elegant, 2=glanzvoll
+// haltung: 0=sanft, 1=präzise, 2=charaktervoll
+// spur:    0=frisch, 1=blumig, 2=geheimnisvoll
+
+// ─── Sans alcool (modus 0) ────────────────────────────────────────────────
 
 /**
  * Anchor-Drinks für den alkoholfreien Rezeptbaum.
@@ -37,7 +43,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [0, 0, 1, 0],
+    key: [0, 0, 0, 1],
     name: 'Blanc de Rosée',
     story: 'Weich und blumig, wie der erste Moment eines ruhigen Morgens.',
     base: 'Holunderblüten-Cordial',
@@ -49,7 +55,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [0, 0, 2, 0],
+    key: [0, 0, 0, 2],
     name: 'Thé Noir Vendôme',
     story: 'Ein stilles, tiefes Getränk — Earl Grey und Gewürz für einen introvertierten Abend.',
     base: 'Earl-Grey-Kaltaufguss',
@@ -61,7 +67,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 1, 0, 0],
+    key: [0, 1, 1, 0],
     name: 'Citron Précis',
     story: 'Präzise ausbalanciert, frisch und klar — für einen eleganten Auftakt ohne Alkohol.',
     base: 'Zitronenmelissen-Tee',
@@ -73,7 +79,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 1, 1, 0],
+    key: [0, 1, 1, 1],
     name: 'Pétale Doré',
     story: 'Elegant und blumig — Jasmin und Pfirsich in einer klaren Komposition.',
     base: 'Jasmin-Tee',
@@ -85,7 +91,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 2, 2, 0],
+    key: [0, 1, 2, 2],
     name: 'Encre de Nuit',
     story: 'Charaktervoll und geheimnisvoll — Tee und Kakao für einen unerwarteten Abend.',
     base: 'Schwarzer Tee',
@@ -97,7 +103,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [2, 2, 0, 0],
+    key: [0, 2, 2, 0],
     name: 'Cascade Fraîche',
     story: 'Funkelnd und frisch — Sparkling Tea mit Zitrus für einen glänzenden Auftakt.',
     base: 'Sparkling Tea',
@@ -109,7 +115,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [2, 1, 1, 0],
+    key: [0, 2, 1, 1],
     name: 'Floraison Perlée',
     story: 'Perlig, elegant und blumig — für einen Abend der gesehen werden darf.',
     base: 'Sparkling Tea mit Rose',
@@ -121,7 +127,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [2, 2, 2, 0],
+    key: [0, 2, 2, 2],
     name: 'Nuit Perlée',
     story: 'Ein funkelnder Abschluss ohne Alkohol — warm, tief und mit bleibender Aromatik.',
     base: 'Sparkling Tea',
@@ -134,7 +140,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
   },
 ]
 
-// ─── Low-ABV (Modus 1) ────────────────────────────────────────────────────
+// ─── Low-ABV (modus 1) ────────────────────────────────────────────────────
 
 /**
  * Anchor-Drinks für den Low-ABV-Rezeptbaum.
@@ -142,7 +148,7 @@ const SANS_ALCOOL: AnchorDrink[] = [
  */
 const LOW_ABV: AnchorDrink[] = [
   {
-    key: [0, 0, 0, 1],
+    key: [1, 0, 0, 0],
     name: 'Murmure Blanc',
     story: 'Leise und präzise — ein kurzer Vermouth-Drink für den stillen Beginn.',
     base: 'Weißer Vermouth',
@@ -154,7 +160,7 @@ const LOW_ABV: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [0, 1, 1, 1],
+    key: [1, 0, 1, 1],
     name: 'Jardin de Fleurs',
     story: 'Präzise und blumig — Lillet und Holunder in eleganter Balance.',
     base: 'Lillet Blanc',
@@ -166,8 +172,8 @@ const LOW_ABV: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 1, 0, 1],
-    name: 'Clarté d\'Été',
+    key: [1, 1, 1, 0],
+    name: "Clarté d'Été",
     story: 'Ein eleganter Sommerdrink — Champagne und Zitrus für den offenen Abend.',
     base: 'Champagne',
     accents: ['Zitrone', 'Holunder', 'Minze'],
@@ -178,7 +184,7 @@ const LOW_ABV: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 2, 1, 1],
+    key: [1, 1, 2, 1],
     name: 'Apéritif Caractère',
     story: 'Bitter und blumig — Aperol und Rose für einen charaktervollen Auftakt.',
     base: 'Aperol',
@@ -190,8 +196,8 @@ const LOW_ABV: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 2, 2, 1],
-    name: 'Ombre d\'Automne',
+    key: [1, 1, 2, 2],
+    name: "Ombre d'Automne",
     story: 'Warm und tief — Vermouth rosso mit Gewürz für einen charaktervollen Abend.',
     base: 'Vermouth Rosso',
     accents: ['Orange', 'Zimt', 'Angostura'],
@@ -202,7 +208,7 @@ const LOW_ABV: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [2, 1, 0, 1],
+    key: [1, 2, 1, 0],
     name: 'Champagne Fraîcheur',
     story: 'Funkelnd und frisch — Champagne pur mit einem Hauch Zitrus.',
     base: 'Champagne',
@@ -214,7 +220,7 @@ const LOW_ABV: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [2, 2, 2, 1],
+    key: [1, 2, 2, 2],
     name: 'Vendôme Royale',
     story: 'Glanzvoll und tief — Champagne mit Gewürz für einen Abend der in Erinnerung bleibt.',
     base: 'Champagne',
@@ -226,7 +232,7 @@ const LOW_ABV: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [2, 0, 1, 1],
+    key: [1, 2, 0, 1],
     name: 'Rosée du Matin',
     story: 'Sanft und perlig — Crémant und Rose für einen glänzenden, leichten Auftakt.',
     base: 'Crémant',
@@ -238,7 +244,7 @@ const LOW_ABV: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [0, 2, 2, 1],
+    key: [1, 0, 2, 2],
     name: 'Amer Discret',
     story: 'Für den stillen Charakterkopf — Sherry und Gewürz in einem kurzen, tiefen Glas.',
     base: 'Fino Sherry',
@@ -251,7 +257,7 @@ const LOW_ABV: AnchorDrink[] = [
   },
 ]
 
-// ─── Signature 18+ (Modus 2) ─────────────────────────────────────────────
+// ─── Signature 18+ (modus 2) ──────────────────────────────────────────────
 
 /**
  * Anchor-Drinks für den Signature-Rezeptbaum (18+).
@@ -260,7 +266,7 @@ const LOW_ABV: AnchorDrink[] = [
  */
 const SIGNATURE: AnchorDrink[] = [
   {
-    key: [0, 0, 0, 2],
+    key: [2, 0, 0, 0],
     name: 'Le Silence de Vendôme',
     story: 'Für den stillen Abend — ein kurzer Gin-Drink mit klarer Frische und wenig Lärm.',
     base: 'London Dry Gin',
@@ -272,7 +278,7 @@ const SIGNATURE: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [0, 2, 2, 2],
+    key: [2, 0, 2, 2],
     name: 'Cognac Solitaire',
     story: 'Dunkel und ruhig — Cognac mit Orangenbitter für den introvertierten Kenner.',
     base: 'Cognac VSOP',
@@ -284,7 +290,7 @@ const SIGNATURE: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 1, 0, 2],
+    key: [2, 1, 1, 0],
     name: 'Gimlet de Paris',
     story: 'Präzise und frisch — ein eleganter Gin-Gimlet mit Pariser Anmut.',
     base: 'Gin',
@@ -296,7 +302,7 @@ const SIGNATURE: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 1, 1, 2],
+    key: [2, 1, 1, 1],
     name: 'Place Fleurie',
     story: 'Elegant und blumig — Gin mit Rose und Litschi für einen offenen Abend.',
     base: 'Floraler Gin',
@@ -308,7 +314,7 @@ const SIGNATURE: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [1, 2, 2, 2],
+    key: [2, 1, 2, 2],
     name: 'Midnight Vendôme',
     story: 'Ein Drink für einen Abend, der nicht laut sein muss, um gesehen zu werden. Warm, präzise und mit einer dunklen Zitrusspur, die bleibt.',
     base: 'Cognac',
@@ -320,7 +326,7 @@ const SIGNATURE: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [2, 1, 0, 2],
+    key: [2, 2, 1, 0],
     name: 'Ritz Highball',
     story: 'Funkelnd, frisch und präzise — der klassische Highball im Ritz-Stil.',
     base: 'Vodka',
@@ -344,7 +350,7 @@ const SIGNATURE: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [2, 0, 1, 2],
+    key: [2, 2, 0, 1],
     name: 'Calvados en Fleur',
     story: 'Sanft und funkelnd — Calvados mit Champagne und Rose für einen glänzenden Auftakt.',
     base: 'Calvados',
@@ -356,7 +362,7 @@ const SIGNATURE: AnchorDrink[] = [
     seasonalNote: SEASONAL_NOTE,
   },
   {
-    key: [0, 1, 1, 2],
+    key: [2, 0, 1, 1],
     name: 'Martini Discret',
     story: 'Still und präzise — ein trockener Martini mit blumiger Note für den ruhigen Kenner.',
     base: 'Gin',
@@ -379,7 +385,7 @@ export const ANCHOR_DRINKS: AnchorDrink[] = [
 /**
  * Sucht einen exakten Anchor-Drink für den gegebenen SliderState.
  *
- * @param state - Die vier Regler-Positionen
+ * @param state - Die vier Regler-Positionen [modus, abend, haltung, spur]
  * @returns Den passenden AnchorDrink oder undefined wenn kein exakter Match
  * @example
  * const drink = findAnchorDrink([2, 2, 2, 2]) // → Hemingway Sombre

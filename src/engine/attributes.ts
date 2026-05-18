@@ -94,8 +94,8 @@ const MODUS: [ModusAttributes, ModusAttributes, ModusAttributes] = [
  * // → { abend: Highball/long/sparkling, haltung: strong/bitter, ... }
  */
 export const getAttributes = (state: SliderState): CombinedAttributes => ({
-  abend:   ABEND[state[0]],
-  haltung: HALTUNG[state[1]],
-  spur:    SPUR[state[2]],
-  modus:   MODUS[state[3]],
+  modus:   MODUS[state[0]],
+  abend:   ABEND[state[1]],
+  haltung: HALTUNG[state[2]],
+  spur:    SPUR[state[3]],
 })

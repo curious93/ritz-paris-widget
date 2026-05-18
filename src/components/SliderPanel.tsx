@@ -1,8 +1,16 @@
 import { type SliderConfig, type SliderState } from '../types/drink'
 import './SliderPanel.css'
 
-/** Verbindliche Regler-Konfiguration aus dem Briefing. */
+/** Verbindliche Regler-Konfiguration — Reihenfolge: Modus, Abend, Haltung, Aromatik. */
 const SLIDER_CONFIG: [SliderConfig, SliderConfig, SliderConfig, SliderConfig] = [
+  {
+    question: 'Ihr Modus',
+    positions: [
+      { label: 'Sans alcool',    subline: 'Tee, Verjus, Frucht, Kräuter, Sparkling Tea' },
+      { label: 'Leicht',         subline: 'Low-ABV — Vermouth, Apéritif, Champagne' },
+      { label: 'Signature 18+',  subline: 'Gin, Cognac, Calvados, Rum oder Vodka' },
+    ],
+  },
   {
     question: 'Wie beginnt Ihr Abend?',
     positions: [
@@ -20,19 +28,11 @@ const SLIDER_CONFIG: [SliderConfig, SliderConfig, SliderConfig, SliderConfig] = 
     ],
   },
   {
-    question: 'Welche Spur bleibt?',
+    question: 'Welche Aromatik spricht Sie an?',
     positions: [
       { label: 'Frisch',         subline: 'Zitrus, Apfel, Minze, Gurke — helle, klare Aromatik' },
       { label: 'Blumig',         subline: 'Jasmin, Rose, Holunder, Pfirsich — elegante Garnitur' },
       { label: 'Geheimnisvoll',  subline: 'Orange, Kakao, Tee, Gewürz — dunkle, warme Aromatik' },
-    ],
-  },
-  {
-    question: 'Ihr Modus',
-    positions: [
-      { label: 'Sans alcool',    subline: 'Tee, Verjus, Frucht, Kräuter, Sparkling Tea' },
-      { label: 'Leicht',         subline: 'Low-ABV — Vermouth, Apéritif, Champagne' },
-      { label: 'Signature 18+',  subline: 'Gin, Cognac, Calvados, Rum oder Vodka' },
     ],
   },
 ]
