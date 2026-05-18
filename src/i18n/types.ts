@@ -16,14 +16,15 @@ export interface Translations {
   sliders: [SliderT, SliderT, SliderT, SliderT]
   /** Texte der Ergebnis-Card */
   card: {
-    eyebrow:    string
-    basis:      string
-    aromatik:   string
-    glas:       string
-    garnitur:   string
-    pdfButton:  string
-    pdfLoading: string
-    disclaimer: string
+    eyebrow:      string
+    basis:        string
+    aromatik:     string
+    glas:         string
+    garnitur:     string
+    pdfButton:    string
+    pdfLoading:   string
+    disclaimer:   string
+    seasonalNote: string
   }
   /** Texte für die PDF-Karte */
   pdf: {

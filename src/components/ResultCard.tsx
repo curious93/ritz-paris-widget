@@ -92,7 +92,7 @@ export function ResultCard({ drink, state, t }: ResultCardProps) {
             {downloading ? t.pdfLoading : t.pdfButton}
           </button>
         </div>
-        <p className="ritz-card__seasonal">{drink.seasonalNote}</p>
+        <p className="ritz-card__seasonal">{t.seasonalNote}</p>
         {drink.abvLevel === 'full' && (
           <p className="ritz-card__disclaimer" role="note">{t.disclaimer}</p>
         )}

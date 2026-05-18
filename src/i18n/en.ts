@@ -11,33 +11,33 @@ export const en: Translations = {
     {
       question: '🥃  Your preference',
       positions: [
-        { label: 'Non-alcoholic',  subline: 'Tea, verjus, fruit, herbs, sparkling tea' },
-        { label: 'Light',          subline: 'Low-ABV — vermouth, apéritif, champagne' },
-        { label: 'Signature 18+',  subline: 'Gin, cognac, calvados, rum or vodka' },
+        { label: 'Non-alcoholic',  subline: 'A complete experience without alcohol — tea, verjus, fruit and herbs in precise compositions.' },
+        { label: 'Light',          subline: 'Low alcohol, full character — vermouth, champagne or apéritif for a light, elegant evening.' },
+        { label: 'Signature 18+',  subline: 'The classic bar experience — gin, cognac, calvados, rum or vodka as the foundation.' },
       ],
     },
     {
       question: '🌙  How does your evening begin?',
       positions: [
-        { label: 'Still & private',   subline: 'Short, quiet drink — low carbonation, discreet presence' },
-        { label: 'Elegant & open',    subline: 'Balanced, light freshness — for a convivial opening' },
-        { label: 'Brilliant & seen',  subline: 'Longer, sparkling drink — champagne or soda, full presence' },
+        { label: 'Still & private',   subline: 'A short, quiet drink for an evening that begins in stillness — low carbonation, discreet presence.' },
+        { label: 'Elegant & open',    subline: 'Balanced and welcoming — for a convivial opening with gentle freshness and clear form.' },
+        { label: 'Brilliant & seen',  subline: 'A long, sparkling drink for moments that deserve to be noticed — champagne, soda or sparkling tea.' },
       ],
     },
     {
       question: '🎩  Your character',
       positions: [
-        { label: 'Gentle',       subline: 'Soft acidity, round sweetness, lower intensity' },
-        { label: 'Precise',      subline: 'Clear structure, dry, citric, defined balance' },
-        { label: 'Bold',         subline: 'More depth, bitters, spice, stronger base note' },
+        { label: 'Gentle',       subline: 'Soft, round and inviting — low intensity, gentle acidity, a drink that never imposes.' },
+        { label: 'Precise',      subline: 'Clearly structured, dry and citric — every element has its defined place.' },
+        { label: 'Bold',         subline: 'Complex and assertive — bitters, spice and a strong base note for a drink with presence.' },
       ],
     },
     {
       question: '🌿  Your preferred aroma?',
       positions: [
-        { label: 'Fresh',        subline: 'Citrus, apple, mint, cucumber — bright, clean aromatics' },
-        { label: 'Floral',       subline: 'Jasmine, rose, elderflower, peach — elegant garnish' },
-        { label: 'Mysterious',   subline: 'Orange, cacao, tea, spice — dark, warm aromatics' },
+        { label: 'Fresh',        subline: 'Bright and lively — citrus, apple, mint and cucumber for a clean, invigorating aromatic.' },
+        { label: 'Floral',       subline: 'Delicate and elegant — jasmine, rose, elderflower and peach with a fine floral garnish.' },
+        { label: 'Mysterious',   subline: 'Dark and warm — orange, cacao, tea and spice for a deep, lingering aromatic.' },
       ],
     },
   ],
@@ -49,7 +49,8 @@ export const en: Translations = {
     garnitur:   'Garnish',
     pdfButton:  'Recipe card',
     pdfLoading: 'Creating…',
-    disclaimer: 'This drink contains alcohol. Please enjoy responsibly. Not suitable for persons under 18 years of age.',
+    disclaimer:   'This drink contains alcohol. Please enjoy responsibly. Not suitable for persons under 18 years of age.',
+    seasonalNote: 'The final composition depends on season and availability. The bar team at Ritz Paris refines each drink on site.',
   },
   pdf: {
     byline: 'Bar Hemingway · Place Vendôme · Paris',
