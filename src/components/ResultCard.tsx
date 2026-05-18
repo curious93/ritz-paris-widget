@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { type DrinkResult, type SliderState } from '../types/drink'
 import { generateCode } from '../engine/codeGenerator'
+import { downloadPdf } from './pdfDownload'
 import './ResultCard.css'
 
 /** Props für die Ergebnis-Card. */
@@ -21,6 +23,13 @@ interface ResultCardProps {
  */
 export function ResultCard({ drink, state }: ResultCardProps) {
   const code = generateCode(state)
+  const [downloading, setDownloading] = useState(false)
+
+  const handleDownload = async () => {
+    setDownloading(true)
+    await downloadPdf(drink, state)
+    setDownloading(false)
+  }
 
   return (
     <section className="ritz-card" aria-label="Ihr persönlicher Drink" aria-live="polite">
@@ -70,9 +79,20 @@ export function ResultCard({ drink, state }: ResultCardProps) {
 
       {/* ── Footer ─────────────────────────────────────────────────── */}
       <div className="ritz-card__footer">
-        <p className="ritz-card__code" aria-label={`Persönlicher Code: ${code}`}>
-          {code}
-        </p>
+        <div className="ritz-card__footer-top">
+          <p className="ritz-card__code" aria-label={`Persönlicher Code: ${code}`}>
+            {code}
+          </p>
+          <button
+            type="button"
+            className="ritz-card__pdf-btn"
+            onClick={handleDownload}
+            disabled={downloading}
+            aria-label="Rezeptkarte als PDF herunterladen"
+          >
+            {downloading ? 'Wird erstellt…' : 'Rezeptkarte'}
+          </button>
+        </div>
         <p className="ritz-card__seasonal">{drink.seasonalNote}</p>
         {drink.abvLevel === 'full' && (
           <p className="ritz-card__disclaimer" role="note">
