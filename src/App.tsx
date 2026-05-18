@@ -7,7 +7,7 @@ import { translations, getSavedLang, saveLang, type Lang } from './i18n'
 import './App.css'
 
 /** Die drei verfügbaren Sprachen als geordnetes Array für den Umschalter. */
-const LANGS: Lang[] = ['de', 'en', 'fr']
+const LANGS: Lang[] = ['fr', 'en', 'de']
 
 /**
  * Root-Komponente des Ritz Paris Cocktail Creator Widget.
