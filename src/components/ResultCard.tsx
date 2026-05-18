@@ -37,7 +37,8 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
   const code = generateCode(state)
   const [downloading, setDownloading] = useState(false)
 
-  const hasAny = touched.some(Boolean)
+  const touchedCount = touched.filter(Boolean).length
+  const hasAll = touchedCount === 4
 
   const handleDownload = async () => {
     setDownloading(true)
@@ -45,23 +46,35 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
     setDownloading(false)
   }
 
-  /* ── Initial: Kein Regler gewählt ─────────────────────────────────────── */
-  if (!hasAny) {
+  /* ── Noch nicht alle gewählt: Zitat + Fortschritt ─────────────────────── */
+  if (!hasAll) {
     return (
       <section className="ritz-card ritz-card--quote" aria-label="Zitat">
         <blockquote className="ritz-card__quote-text">
           {quote.text}
         </blockquote>
         <p className="ritz-card__quote-attr">{quote.attribution}</p>
-        <div className="ritz-card__quote-arrow" aria-hidden="true">
-          ←
-        </div>
-        <p className="ritz-card__quote-cta">{quote.cta}</p>
+        {touchedCount === 0 ? (
+          <>
+            <div className="ritz-card__quote-arrow" aria-hidden="true">←</div>
+            <p className="ritz-card__quote-cta">{quote.cta}</p>
+          </>
+        ) : (
+          <div className="ritz-card__progress" aria-label={`${touchedCount} von 4 gewählt`}>
+            {([0, 1, 2, 3] as const).map((i) => (
+              <div
+                key={i}
+                className={`ritz-card__progress-dot${touched[i] ? ' ritz-card__progress-dot--done' : ''}`}
+              />
+            ))}
+            <span className="ritz-card__progress-label">{touchedCount} / 4</span>
+          </div>
+        )}
       </section>
     )
   }
 
-  /* ── Ab erstem Klick: volle Drink-Card ─────────────────────────────────── */
+  /* ── Alle 4 gewählt: volle Drink-Card ──────────────────────────────────── */
   return (
     <section className="ritz-card" aria-label={t.eyebrow} aria-live="polite">
 
