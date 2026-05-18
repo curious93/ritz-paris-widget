@@ -103,6 +103,8 @@
       "sliders"
       "card";
     max-width: 520px;
+    row-gap: 1rem;
+    padding: 1.25rem 1rem;
   }
 
   .ritz-widget > section.ritz-card {
@@ -112,5 +114,14 @@
   .ritz-intro__subline {
     display: block;
     font-size: var(--text-subline);
+  }
+
+  .ritz-intro {
+    gap: 0.25rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .ritz-intro__headline {
+    font-size: 1.15rem;
   }
 }
