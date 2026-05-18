@@ -52,6 +52,12 @@ export const fr: Translations = {
     disclaimer:   "Cette boisson contient de l'alcool. Consommez avec modération. Déconseillé aux personnes de moins de 18 ans.",
     seasonalNote: "La composition finale dépend de la saison et des disponibilités. L'équipe du bar du Ritz Paris affine chaque boisson sur place.",
   },
+  quote: {
+    text:        "« Quand je rêve de l'au-delà, l'action se passe toujours au bar du Ritz Paris. »",
+    attribution: '— Ernest Hemingway',
+    cta:         'Composez votre soirée',
+    pending:     '—',
+  },
   pdf: {
     byline: 'Bar Hemingway · Place Vendôme · Paris',
     footer: 'Ritz Paris — Votre composition personnelle',

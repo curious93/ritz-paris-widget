@@ -17,6 +17,7 @@ const LANGS: Lang[] = ['de', 'en', 'fr']
  */
 function App() {
   const [sliderState, setSliderState] = useState<SliderState>([0, 0, 0, 0])
+  const [touched, setTouched] = useState<[boolean, boolean, boolean, boolean]>([false, false, false, false])
   const [lang, setLang] = useState<Lang>(getSavedLang)
   const t = translations[lang]
   const drink = drinkEngine(sliderState)
@@ -24,6 +25,11 @@ function App() {
   const handleLang = (l: Lang) => {
     setLang(l)
     saveLang(l)
+  }
+
+  const handleSliderChange = (state: SliderState, nextTouched: [boolean, boolean, boolean, boolean]) => {
+    setSliderState(state)
+    setTouched(nextTouched)
   }
 
   return (
@@ -52,14 +58,21 @@ function App() {
         </header>
 
         {/* ── Slider Panel ──────────────────────────────────────────── */}
-        <SliderPanel state={sliderState} onChange={setSliderState} sliders={t.sliders} />
+        <SliderPanel
+          state={sliderState}
+          touched={touched}
+          onChange={handleSliderChange}
+          sliders={t.sliders}
+        />
 
         {/* ── Result Card ───────────────────────────────────────────── */}
         <ResultCard
-          key={sliderState.join('-')}
+          key={`${sliderState.join('-')}-${touched.join('-')}`}
           drink={drink}
           state={sliderState}
+          touched={touched}
           t={t.card}
+          quote={t.quote}
         />
 
       </div>

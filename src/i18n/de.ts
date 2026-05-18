@@ -52,6 +52,12 @@ export const de: Translations = {
     disclaimer:   'Dieser Drink enthält Alkohol. Genuss in Maßen — Bitte trinken Sie verantwortungsvoll. Nicht geeignet für Personen unter 18 Jahren.',
     seasonalNote: 'Die finale Komposition hängt von Saison und Verfügbarkeit ab. Das Barteam des Ritz Paris verfeinert den Drink vor Ort.',
   },
+  quote: {
+    text:        '„Wenn ich vom Jenseits träume, spielt sich die Handlung immer in der Bar des Ritz Paris ab."',
+    attribution: '— Ernest Hemingway',
+    cta:         'Wählen Sie Ihren Abend',
+    pending:     '—',
+  },
   pdf: {
     byline: 'Bar Hemingway · Place Vendôme · Paris',
     footer: 'Ritz Paris — Votre composition personnelle',

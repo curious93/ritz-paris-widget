@@ -11,23 +11,34 @@ interface ResultCardProps {
   drink: DrinkResult
   /** SliderState für Code-Generierung */
   state: SliderState
+  /** Welche Regler bereits berührt wurden */
+  touched: [boolean, boolean, boolean, boolean]
   /** Lokalisierte Card-Texte aus der aktiven Sprache */
   t: Translations['card']
+  /** Zitat-Texte für den initialen Zustand */
+  quote: Translations['quote']
 }
 
 /**
  * Zeigt das vollständige Drink-Ergebnis an.
- * Animiert bei jeder State-Änderung neu (via `key` in App.tsx).
+ * Vor erster Auswahl: Hemingway-Zitat mit Pfeil-CTA.
+ * Nach erster Auswahl: Card-Struktur mit Platzhaltern.
+ * Nach vollständiger Auswahl: vollständige Drink-Card.
  *
  * @param props - Komponenten-Props
  * @param props.drink - Aktueller DrinkResult
  * @param props.state - Aktueller SliderState für Code-Generierung
+ * @param props.touched - Welche Regler bereits berührt wurden
  * @param props.t - Lokalisierte Texte für Labels und Buttons
+ * @param props.quote - Zitat-Texte für den initialen Zustand
  * @returns Die Ergebnis-Card
  */
-export function ResultCard({ drink, state, t }: ResultCardProps) {
+export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps) {
   const code = generateCode(state)
   const [downloading, setDownloading] = useState(false)
+
+  const hasAny = touched.some(Boolean)
+  const hasAll = touched.every(Boolean)
 
   const handleDownload = async () => {
     setDownloading(true)
@@ -35,6 +46,62 @@ export function ResultCard({ drink, state, t }: ResultCardProps) {
     setDownloading(false)
   }
 
+  /* ── Initial: Kein Regler gewählt ─────────────────────────────────────── */
+  if (!hasAny) {
+    return (
+      <section className="ritz-card ritz-card--quote" aria-label="Zitat">
+        <blockquote className="ritz-card__quote-text">
+          {quote.text}
+        </blockquote>
+        <p className="ritz-card__quote-attr">{quote.attribution}</p>
+        <div className="ritz-card__quote-arrow" aria-hidden="true">
+          ←
+        </div>
+        <p className="ritz-card__quote-cta">{quote.cta}</p>
+      </section>
+    )
+  }
+
+  /* ── Teilweise gewählt: Platzhalter-Card ───────────────────────────────── */
+  if (!hasAll) {
+    return (
+      <section className="ritz-card" aria-label={t.eyebrow} aria-live="polite">
+        <div className="ritz-card__header">
+          <p className="ritz-card__eyebrow">{t.eyebrow}</p>
+          <div className="ritz-card__divider" aria-hidden="true" />
+        </div>
+
+        <dl className="ritz-card__details">
+          <div className="ritz-card__detail-row">
+            <dt className="ritz-card__detail-label">{t.basis}</dt>
+            <dd className="ritz-card__detail-value ritz-card__detail-value--pending">
+              {touched[0] ? drink.base : quote.pending}
+            </dd>
+          </div>
+          <div className="ritz-card__detail-row">
+            <dt className="ritz-card__detail-label">{t.aromatik}</dt>
+            <dd className="ritz-card__detail-value ritz-card__detail-value--pending">
+              {touched[3] ? drink.accents.join(' · ') : quote.pending}
+            </dd>
+          </div>
+          <div className="ritz-card__detail-row">
+            <dt className="ritz-card__detail-label">{t.glas}</dt>
+            <dd className="ritz-card__detail-value ritz-card__detail-value--pending">
+              {touched[1] ? drink.glass : quote.pending}
+            </dd>
+          </div>
+          <div className="ritz-card__detail-row">
+            <dt className="ritz-card__detail-label">{t.garnitur}</dt>
+            <dd className="ritz-card__detail-value ritz-card__detail-value--pending">
+              {touched[3] ? drink.garnish : quote.pending}
+            </dd>
+          </div>
+        </dl>
+      </section>
+    )
+  }
+
+  /* ── Vollständig: volle Drink-Card ─────────────────────────────────────── */
   return (
     <section className="ritz-card" aria-label={t.eyebrow} aria-live="polite">
 

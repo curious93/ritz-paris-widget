@@ -26,6 +26,17 @@ export interface Translations {
     disclaimer:   string
     seasonalNote: string
   }
+  /** Initiales Zitat (vor erster Auswahl) */
+  quote: {
+    /** Der Zitattext */
+    text: string
+    /** Autor und Kontext */
+    attribution: string
+    /** CTA unter dem Pfeil */
+    cta: string
+    /** Platzhalter in der Card wenn ein Regler noch nicht gewählt wurde */
+    pending: string
+  }
   /** Texte für die PDF-Karte */
   pdf: {
     byline: string

@@ -216,6 +216,68 @@
   margin:         0;
 }
 
+/* ── Zitat-Ansicht (initialer Zustand) ───────────────────────────────────── */
+.ritz-card--quote {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  justify-content: center;
+  text-align:     center;
+  gap:            1.25rem;
+  padding-block:  clamp(2rem, 6vw, 3.5rem);
+}
+
+.ritz-card__quote-text {
+  font-family:  var(--font-display);
+  font-size:    clamp(1rem, 2.2vw, 1.3rem);
+  font-weight:  400;
+  font-style:   italic;
+  line-height:  1.55;
+  color:        var(--color-text-primary);
+  letter-spacing: 0.01em;
+  margin:       0;
+  max-width:    34ch;
+}
+
+.ritz-card__quote-attr {
+  font-family:    var(--font-body);
+  font-size:      var(--text-subline);
+  font-weight:    400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          var(--color-text-muted);
+  margin:         0;
+}
+
+.ritz-card__quote-arrow {
+  font-size:   1.5rem;
+  color:       var(--color-gold);
+  opacity:     0.7;
+  animation:   ritz-arrow-pulse 2.5s ease-in-out infinite;
+  line-height: 1;
+}
+
+@keyframes ritz-arrow-pulse {
+  0%, 100% { transform: translateX(0);    opacity: 0.6; }
+  50%       { transform: translateX(-6px); opacity: 1;   }
+}
+
+.ritz-card__quote-cta {
+  font-family:    var(--font-body);
+  font-size:      var(--text-label);
+  font-weight:    400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          var(--color-text-secondary);
+  margin:         0;
+}
+
+/* Platzhalter-Wert wenn Regler noch nicht gewählt */
+.ritz-card__detail-value--pending {
+  color:   var(--color-text-muted);
+  opacity: 0.6;
+}
+
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 720px) {
   .ritz-card {

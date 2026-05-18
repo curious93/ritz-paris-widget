@@ -52,6 +52,12 @@ export const en: Translations = {
     disclaimer:   'This drink contains alcohol. Please enjoy responsibly. Not suitable for persons under 18 years of age.',
     seasonalNote: 'The final composition depends on season and availability. The bar team at Ritz Paris refines each drink on site.',
   },
+  quote: {
+    text:        '"When I dream of afterlife, the action always takes place in the bar of the Ritz Paris."',
+    attribution: '— Ernest Hemingway',
+    cta:         'Compose your evening',
+    pending:     '—',
+  },
   pdf: {
     byline: 'Bar Hemingway · Place Vendôme · Paris',
     footer: 'Ritz Paris — Your personal composition',
