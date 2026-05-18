@@ -52,6 +52,10 @@ Vor jeder Implementierung lesen. Kein hardcodierter Farbwert im Code — nur CSS
   --color-bg-widget:    #FAF7F2;  /* Widget-Hintergrund — Ivory */
   --color-bg-card:      #F9F5EE;  /* ResultCard-Hintergrund */
 
+  /* Botanisch — tiefes Flaschengrün [BRIEFING] */
+  --color-forest:       #2E4238;  /* Profil-Tags, botanische Akzente */
+  --color-forest-muted: rgba(46, 66, 56, 0.12);  /* sehr transparente Fläche */
+
   /* Status / Compliance */
   --color-disclaimer:   #8A7060;  /* Responsible-Drinking-Hinweis — dezent */
 
@@ -347,6 +351,8 @@ Der Slider hat exakt 3 Positionen (keine freie Skala). Er verhält sich wie ein 
   --color-bg-page:        #FFFFFF;
   --color-bg-widget:      #FAF7F2;
   --color-bg-card:        #F9F5EE;
+  --color-forest:         #2E4238;
+  --color-forest-muted:   rgba(46, 66, 56, 0.12);
   --color-disclaimer:     #8A7060;
 
   /* Schriften */

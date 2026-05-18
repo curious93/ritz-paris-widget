@@ -138,8 +138,9 @@
   font-weight:    400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color:          var(--color-text-secondary);
-  border:         1px solid var(--color-border);
+  color:          var(--color-forest);
+  border:         1px solid var(--color-forest-muted);
+  background:     var(--color-forest-muted);
   padding:        0.25rem 0.65rem;
 }
 
@@ -298,8 +299,8 @@
 }
 
 .ritz-card__progress-dot--done {
-  background:    var(--color-gold);
-  border-color:  var(--color-gold);
+  background:    var(--color-forest);
+  border-color:  var(--color-forest);
   transform:     scale(1.15);
 }
 
