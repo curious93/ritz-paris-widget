@@ -38,7 +38,6 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
   const [downloading, setDownloading] = useState(false)
 
   const hasAny = touched.some(Boolean)
-  const hasAll = touched.every(Boolean)
 
   const handleDownload = async () => {
     setDownloading(true)
@@ -54,51 +53,15 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
           {quote.text}
         </blockquote>
         <p className="ritz-card__quote-attr">{quote.attribution}</p>
-        <div className="ritz-card__quote-arrow" aria-hidden="true">←</div>
+        <div className="ritz-card__quote-arrow" aria-hidden="true">
+          ←
+        </div>
         <p className="ritz-card__quote-cta">{quote.cta}</p>
       </section>
     )
   }
 
-  /* ── Teilweise gewählt: Labels + Platzhalter ───────────────────────────── */
-  if (!hasAll) {
-    return (
-      <section className="ritz-card" aria-label={t.eyebrow} aria-live="polite">
-        <div className="ritz-card__header">
-          <p className="ritz-card__eyebrow">{t.eyebrow}</p>
-          <div className="ritz-card__divider" aria-hidden="true" />
-        </div>
-        <dl className="ritz-card__details">
-          <div className="ritz-card__detail-row">
-            <dt className="ritz-card__detail-label">{t.basis}</dt>
-            <dd className="ritz-card__detail-value ritz-card__detail-value--pending">
-              {touched[0] ? drink.base : quote.pending}
-            </dd>
-          </div>
-          <div className="ritz-card__detail-row">
-            <dt className="ritz-card__detail-label">{t.aromatik}</dt>
-            <dd className="ritz-card__detail-value ritz-card__detail-value--pending">
-              {touched[3] ? drink.accents.join(' · ') : quote.pending}
-            </dd>
-          </div>
-          <div className="ritz-card__detail-row">
-            <dt className="ritz-card__detail-label">{t.glas}</dt>
-            <dd className="ritz-card__detail-value ritz-card__detail-value--pending">
-              {touched[1] ? drink.glass : quote.pending}
-            </dd>
-          </div>
-          <div className="ritz-card__detail-row">
-            <dt className="ritz-card__detail-label">{t.garnitur}</dt>
-            <dd className="ritz-card__detail-value ritz-card__detail-value--pending">
-              {touched[3] ? drink.garnish : quote.pending}
-            </dd>
-          </div>
-        </dl>
-      </section>
-    )
-  }
-
-  /* ── Alle 4 gewählt: volle Drink-Card ──────────────────────────────────── */
+  /* ── Ab erstem Klick: volle Drink-Card ─────────────────────────────────── */
   return (
     <section className="ritz-card" aria-label={t.eyebrow} aria-live="polite">
 

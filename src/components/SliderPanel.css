@@ -38,7 +38,6 @@
   appearance: none;
   background: transparent;
   border: none;
-  outline: none;
   cursor: pointer;
   /* Touch: schnelles Tap-Feedback, kein 300ms Delay */
   touch-action: manipulation;
