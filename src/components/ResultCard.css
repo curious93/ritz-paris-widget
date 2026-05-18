@@ -304,10 +304,11 @@
 }
 
 .ritz-card__progress-label {
-  font-family:    var(--font-body);
-  font-size:      1rem;
-  font-weight:    500;
-  letter-spacing: 0.2em;
+  font-family:    var(--font-display);
+  font-size:      1.5rem;
+  font-weight:    400;
+  font-style:     italic;
+  letter-spacing: 0.08em;
   color:          var(--color-gold);
 }
 
