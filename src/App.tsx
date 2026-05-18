@@ -4,6 +4,11 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+/**
+ * Temporäre Vite-Scaffold-Komponente — wird durch Issue #2 ersetzt.
+ *
+ * @returns Vite-Starter-Layout
+ */
 function App() {
   const [count, setCount] = useState(0)
 
