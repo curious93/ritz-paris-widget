@@ -43,6 +43,7 @@ export const en: Translations = {
   ],
   card: {
     eyebrow:    'Voilà',
+    subeyebrow: 'Your personal composition',
     basis:      'Base',
     aromatik:   'Aromatics',
     glas:       'Glass',

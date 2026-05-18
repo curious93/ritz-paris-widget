@@ -17,6 +17,7 @@ export interface Translations {
   /** Texte der Ergebnis-Card */
   card: {
     eyebrow:      string
+    subeyebrow:   string
     basis:        string
     aromatik:     string
     glas:         string

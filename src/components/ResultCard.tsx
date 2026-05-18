@@ -83,6 +83,7 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
       {/* ── Drink-Name ─────────────────────────────────────────────── */}
       <div className="ritz-card__header">
         <p className="ritz-card__eyebrow">{t.eyebrow}</p>
+        <p className="ritz-card__subeyebrow">{t.subeyebrow}</p>
         <h2 className="ritz-card__name">{drink.name}</h2>
         <div className="ritz-card__divider" aria-hidden="true" />
       </div>
