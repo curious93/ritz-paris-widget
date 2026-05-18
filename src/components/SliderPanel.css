@@ -1,0 +1,129 @@
+/* ─── SliderPanel — 4 Regler mit je 3 Positionen ───────────────────────────
+   Design-Referenz: styles.md — Slider-Stile, Animationsprinzipien.
+   ─────────────────────────────────────────────────────────────────────── */
+
+.ritz-slider-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Einzelner Regler ────────────────────────────────────────────────────── */
+.ritz-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ritz-slider__question {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* ── Track: drei Positions-Buttons nebeneinander ─────────────────────────── */
+.ritz-slider__track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--color-border);
+}
+
+/* ── Positions-Button ────────────────────────────────────────────────────── */
+.ritz-slider__btn {
+  /* Reset */
+  appearance: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  /* Layout */
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  /* Typografie */
+  font-family: var(--font-body);
+  font-size: var(--text-subline);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  /* Transition — ease-settle aus styles.md */
+  transition:
+    background-color var(--duration-hover) var(--ease-settle),
+    color var(--duration-hover) var(--ease-settle);
+  /* Trennlinie zwischen Buttons */
+  border-right: 1px solid var(--color-border);
+}
+
+.ritz-slider__btn:last-child {
+  border-right: none;
+}
+
+/* Hover — nur auf nicht-aktiven Buttons */
+.ritz-slider__btn:not(.ritz-slider__btn--active):hover {
+  background-color: var(--color-ivory-warm);
+  color: var(--color-text-secondary);
+}
+
+/* Aktiver Button — Gold-Akzent */
+.ritz-slider__btn--active {
+  background-color: var(--color-ivory-warm);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  /* Settle-Effekt beim Aktivieren */
+  animation: ritz-settle 200ms var(--ease-settle);
+}
+
+/* Dezenter Settle-Effekt: kurzes Eindrücken beim Klick */
+@keyframes ritz-settle {
+  0%   { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+/* Goldlinie unter aktivem Button */
+.ritz-slider__btn--active::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--color-gold);
+  margin-top: 0.5rem;
+  /* Linie "zeichnet sich" von links — Animations-Prinzip aus styles.md */
+  animation: ritz-draw-line var(--duration-draw) var(--ease-settle) forwards;
+  transform-origin: left center;
+}
+
+@keyframes ritz-draw-line {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* ── Subline der aktiven Position ────────────────────────────────────────── */
+.ritz-slider__subline {
+  font-family: var(--font-body);
+  font-size: var(--text-subline);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  min-height: 1.5em;
+  /* Einblenden bei Wechsel — opacity + leichter Shift nach oben */
+  animation: ritz-subline-appear var(--duration-reveal) var(--ease-settle);
+}
+
+@keyframes ritz-subline-appear {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Trennlinie zwischen Reglern ─────────────────────────────────────────── */
+.ritz-slider + .ritz-slider {
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Responsive: Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .ritz-slider__btn {
+    font-size: 0.75rem;
+    padding: 0.625rem 0.25rem;
+  }
+}
