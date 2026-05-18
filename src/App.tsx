@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import { SliderPanel } from './components/SliderPanel'
+import { ResultCard } from './components/ResultCard'
+import { drinkEngine } from './engine/drinkEngine'
 import { type SliderState } from './types/drink'
 import './App.css'
 
 /**
  * Root-Komponente des Ritz Paris Cocktail Creator Widget.
  * Verwaltet den globalen SliderState und rendert Shell-Layout,
- * SliderPanel (Issue #3) und ResultCard-Platzhalter (Issue #6).
+ * SliderPanel und ResultCard.
  *
  * @returns Das vollständige Widget-Layout
  */
 function App() {
   const [sliderState, setSliderState] = useState<SliderState>([0, 0, 0, 0])
+  const drink = drinkEngine(sliderState)
 
   return (
     <main className="ritz-page">
@@ -35,12 +38,12 @@ function App() {
         {/* ── Slider Panel ──────────────────────────────────────────── */}
         <SliderPanel state={sliderState} onChange={setSliderState} />
 
-        {/* ── Result Card — Issue #6 ────────────────────────────────── */}
-        <section className="ritz-card-placeholder" aria-label="Ihr persönlicher Drink">
-          <p className="ritz-placeholder-label">
-            Ergebnis-Card folgt in Issue #6
-          </p>
-        </section>
+        {/* ── Result Card — key triggers re-animation on every change ─ */}
+        <ResultCard
+          key={sliderState.join('-')}
+          drink={drink}
+          state={sliderState}
+        />
 
       </div>
     </main>
