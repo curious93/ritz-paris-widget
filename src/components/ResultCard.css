@@ -2,9 +2,9 @@
    Animationen gemäß styles.md: gestaffelt, ease-out, keine Bounces.
    ─────────────────────────────────────────────────────────────────────────── */
 
-@keyframes ritz-card-fade {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes ritz-card-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes ritz-draw-card {
@@ -21,7 +21,7 @@
   display:       flex;
   flex-direction: column;
   gap:           1.5rem;
-  animation:     ritz-card-fade var(--duration-reveal) var(--ease-settle) both;
+  animation:     ritz-card-in 280ms var(--ease-settle) both;
 }
 
 /* ── Header ──────────────────────────────────────────────────────────────── */
@@ -30,7 +30,7 @@
   flex-direction: column;
   gap: 0.5rem;
   text-align: center;
-  animation: ritz-card-fade var(--duration-reveal) var(--ease-settle) both;
+  animation: ritz-card-in var(--duration-reveal) var(--ease-settle) both;
 }
 
 .ritz-card__eyebrow {
@@ -42,6 +42,11 @@
   color:          var(--color-text-muted);
 }
 
+@keyframes ritz-name-in {
+  from { opacity: 0; letter-spacing: 0.02em; transform: translateY(4px); }
+  to   { opacity: 1; letter-spacing: 0.06em; transform: translateY(0); }
+}
+
 .ritz-card__name {
   font-family:    var(--font-display);
   font-size:      var(--text-drink-name);
@@ -50,7 +55,7 @@
   line-height:    1.15;
   color:          var(--color-gold);
   margin:         0;
-  animation:      ritz-card-fade var(--duration-reveal) var(--ease-settle) both;
+  animation:      ritz-name-in 350ms var(--ease-settle) 40ms both;
 }
 
 /* Goldlinie unter dem Namen */
@@ -81,7 +86,7 @@
   color:          var(--color-text-secondary);
   text-align:     center;
   font-style:     italic;
-  animation:      ritz-card-fade var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 1) both;
+  animation:      ritz-card-in var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 1) both;
 }
 
 /* ── Details ─────────────────────────────────────────────────────────────── */
@@ -90,7 +95,7 @@
   grid-template-columns: auto 1fr;
   gap:        0.6rem 1.5rem;
   margin:     0;
-  animation:  ritz-card-fade var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 2) both;
+  animation:  ritz-card-in var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 2) both;
 }
 
 .ritz-card__detail-row {
@@ -124,7 +129,7 @@
   list-style: none;
   margin:     0;
   padding:    0;
-  animation:  ritz-card-fade var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 3) both;
+  animation:  ritz-card-in var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 3) both;
 }
 
 .ritz-card__tag {
@@ -143,7 +148,7 @@
   display:        flex;
   flex-direction: column;
   gap:            0.75rem;
-  animation:      ritz-card-fade var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 5) both;
+  animation:      ritz-card-in var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 5) both;
 }
 
 .ritz-card__code {
