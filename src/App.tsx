@@ -67,7 +67,7 @@ function App() {
 
         {/* ── Result Card ───────────────────────────────────────────── */}
         <ResultCard
-          key={`${sliderState.join('-')}-${touched.join('-')}`}
+          key={!touched.some(Boolean) ? 'quote' : !touched.every(Boolean) ? 'progress' : sliderState.join('-')}
           drink={drink}
           state={sliderState}
           touched={touched}
