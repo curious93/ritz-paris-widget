@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { type DrinkResult, type SliderState } from '../types/drink'
+import { type Translations } from '../i18n/types'
 import { generateCode } from '../engine/codeGenerator'
 import { downloadPdf } from './pdfDownload'
 import './ResultCard.css'
@@ -10,6 +11,8 @@ interface ResultCardProps {
   drink: DrinkResult
   /** SliderState für Code-Generierung */
   state: SliderState
+  /** Lokalisierte Card-Texte aus der aktiven Sprache */
+  t: Translations['card']
 }
 
 /**
@@ -19,9 +22,10 @@ interface ResultCardProps {
  * @param props - Komponenten-Props
  * @param props.drink - Aktueller DrinkResult
  * @param props.state - Aktueller SliderState für Code-Generierung
+ * @param props.t - Lokalisierte Texte für Labels und Buttons
  * @returns Die Ergebnis-Card
  */
-export function ResultCard({ drink, state }: ResultCardProps) {
+export function ResultCard({ drink, state, t }: ResultCardProps) {
   const code = generateCode(state)
   const [downloading, setDownloading] = useState(false)
 
@@ -32,11 +36,11 @@ export function ResultCard({ drink, state }: ResultCardProps) {
   }
 
   return (
-    <section className="ritz-card" aria-label="Ihr persönlicher Drink" aria-live="polite">
+    <section className="ritz-card" aria-label={t.eyebrow} aria-live="polite">
 
       {/* ── Drink-Name ─────────────────────────────────────────────── */}
       <div className="ritz-card__header">
-        <p className="ritz-card__eyebrow">Ihre persönliche Komposition</p>
+        <p className="ritz-card__eyebrow">{t.eyebrow}</p>
         <h2 className="ritz-card__name">{drink.name}</h2>
         <div className="ritz-card__divider" aria-hidden="true" />
       </div>
@@ -47,28 +51,25 @@ export function ResultCard({ drink, state }: ResultCardProps) {
       {/* ── Details ────────────────────────────────────────────────── */}
       <dl className="ritz-card__details">
         <div className="ritz-card__detail-row">
-          <dt className="ritz-card__detail-label">Basis</dt>
+          <dt className="ritz-card__detail-label">{t.basis}</dt>
           <dd className="ritz-card__detail-value">{drink.base}</dd>
         </div>
-
         <div className="ritz-card__detail-row">
-          <dt className="ritz-card__detail-label">Aromatik</dt>
+          <dt className="ritz-card__detail-label">{t.aromatik}</dt>
           <dd className="ritz-card__detail-value">{drink.accents.join(' · ')}</dd>
         </div>
-
         <div className="ritz-card__detail-row">
-          <dt className="ritz-card__detail-label">Glas</dt>
+          <dt className="ritz-card__detail-label">{t.glas}</dt>
           <dd className="ritz-card__detail-value">{drink.glass}</dd>
         </div>
-
         <div className="ritz-card__detail-row">
-          <dt className="ritz-card__detail-label">Garnitur</dt>
+          <dt className="ritz-card__detail-label">{t.garnitur}</dt>
           <dd className="ritz-card__detail-value">{drink.garnish}</dd>
         </div>
       </dl>
 
       {/* ── Profil-Tags ────────────────────────────────────────────── */}
-      <ul className="ritz-card__profile" aria-label="Geschmacksprofil" role="list">
+      <ul className="ritz-card__profile" aria-label="Profil" role="list">
         {drink.profile.map((tag) => (
           <li key={tag} className="ritz-card__tag">{tag}</li>
         ))}
@@ -80,25 +81,20 @@ export function ResultCard({ drink, state }: ResultCardProps) {
       {/* ── Footer ─────────────────────────────────────────────────── */}
       <div className="ritz-card__footer">
         <div className="ritz-card__footer-top">
-          <p className="ritz-card__code" aria-label={`Persönlicher Code: ${code}`}>
-            {code}
-          </p>
+          <p className="ritz-card__code" aria-label={code}>{code}</p>
           <button
             type="button"
             className="ritz-card__pdf-btn"
             onClick={handleDownload}
             disabled={downloading}
-            aria-label="Rezeptkarte als PDF herunterladen"
+            aria-label={t.pdfButton}
           >
-            {downloading ? 'Wird erstellt…' : 'Rezeptkarte'}
+            {downloading ? t.pdfLoading : t.pdfButton}
           </button>
         </div>
         <p className="ritz-card__seasonal">{drink.seasonalNote}</p>
         {drink.abvLevel === 'full' && (
-          <p className="ritz-card__disclaimer" role="note">
-            Dieser Drink enthält Alkohol. Genuss in Maßen — Bitte trinken Sie verantwortungsvoll.
-            Nicht geeignet für Personen unter 18 Jahren.
-          </p>
+          <p className="ritz-card__disclaimer" role="note">{t.disclaimer}</p>
         )}
       </div>
 

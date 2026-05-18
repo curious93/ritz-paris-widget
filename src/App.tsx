@@ -3,18 +3,28 @@ import { SliderPanel } from './components/SliderPanel'
 import { ResultCard } from './components/ResultCard'
 import { drinkEngine } from './engine/drinkEngine'
 import { type SliderState } from './types/drink'
+import { translations, getSavedLang, saveLang, type Lang } from './i18n'
 import './App.css'
+
+/** Die drei verfügbaren Sprachen als geordnetes Array für den Umschalter. */
+const LANGS: Lang[] = ['de', 'en', 'fr']
 
 /**
  * Root-Komponente des Ritz Paris Cocktail Creator Widget.
- * Verwaltet den globalen SliderState und rendert Shell-Layout,
- * SliderPanel und ResultCard.
+ * Verwaltet SliderState und aktive Sprache (localStorage-persistent).
  *
  * @returns Das vollständige Widget-Layout
  */
 function App() {
   const [sliderState, setSliderState] = useState<SliderState>([0, 0, 0, 0])
+  const [lang, setLang] = useState<Lang>(getSavedLang)
+  const t = translations[lang]
   const drink = drinkEngine(sliderState)
+
+  const handleLang = (l: Lang) => {
+    setLang(l)
+    saveLang(l)
+  }
 
   return (
     <main className="ritz-page">
@@ -22,27 +32,34 @@ function App() {
 
         {/* ── Intro ─────────────────────────────────────────────────── */}
         <header className="ritz-intro">
-          <p className="ritz-intro__eyebrow">Bar Hemingway · Place Vendôme</p>
-          <h1 className="ritz-intro__headline">
-            Komponieren Sie Ihren Ritz‑Abend.
-          </h1>
-          <p className="ritz-intro__subline">
-            Ein Abend an der Place Vendôme beginnt mit einem Gefühl: ein wenig
-            Licht, ein wenig Musik, ein Hauch Geschichte in der Luft. Wählen Sie
-            den Ton Ihres Abends und erhalten Sie ein persönliches
-            Cocktail‑Rezept, inspiriert vom Geist des Ritz Paris.
-          </p>
+          <div className="ritz-lang-switch" role="group" aria-label="Language">
+            {LANGS.map((l) => (
+              <button
+                key={l}
+                type="button"
+                className={`ritz-lang-btn${lang === l ? ' ritz-lang-btn--active' : ''}`}
+                onClick={() => handleLang(l)}
+                aria-pressed={lang === l}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
+          <p className="ritz-intro__eyebrow">{t.intro.eyebrow}</p>
+          <h1 className="ritz-intro__headline">{t.intro.headline}</h1>
+          <p className="ritz-intro__subline">{t.intro.subline}</p>
           <div className="ritz-intro__divider" aria-hidden="true" />
         </header>
 
         {/* ── Slider Panel ──────────────────────────────────────────── */}
-        <SliderPanel state={sliderState} onChange={setSliderState} />
+        <SliderPanel state={sliderState} onChange={setSliderState} sliders={t.sliders} />
 
-        {/* ── Result Card — key triggers re-animation on every change ─ */}
+        {/* ── Result Card ───────────────────────────────────────────── */}
         <ResultCard
           key={sliderState.join('-')}
           drink={drink}
           state={sliderState}
+          t={t.card}
         />
 
       </div>

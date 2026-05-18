@@ -43,22 +43,3 @@ export interface DrinkResult {
   code?: string
 }
 
-/**
- * Konfiguration einer einzelnen Slider-Position (Label + Subline).
- */
-export interface SliderPosition {
-  /** Kurzes Label, z.B. "Still & privat" */
-  label: string
-  /** Erklärende Subline für den Nutzer */
-  subline: string
-}
-
-/**
- * Konfiguration eines kompletten Reglers mit Titel und drei Positionen.
- */
-export interface SliderConfig {
-  /** Frage an den Nutzer, z.B. "Wie beginnt Ihr Abend?" */
-  question: string
-  /** Die drei Positionen des Reglers */
-  positions: [SliderPosition, SliderPosition, SliderPosition]
-}

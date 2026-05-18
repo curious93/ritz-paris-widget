@@ -71,6 +71,43 @@
   display: none;
 }
 
+/* ── Sprachumschalter ────────────────────────────────────────────────────── */
+.ritz-lang-switch {
+  display:         flex;
+  gap:             0;
+  align-self:      flex-end;
+  margin-bottom:   0.25rem;
+}
+
+.ritz-lang-btn {
+  appearance:     none;
+  background:     transparent;
+  border:         1px solid var(--color-border);
+  border-right:   none;
+  color:          var(--color-text-muted);
+  font-family:    var(--font-body);
+  font-size:      0.625rem;
+  letter-spacing: 0.12em;
+  padding:        0.25rem 0.5rem;
+  cursor:         pointer;
+  touch-action:   manipulation;
+  transition:     color var(--duration-hover) var(--ease-settle),
+                  background var(--duration-hover) var(--ease-settle);
+}
+
+.ritz-lang-btn:last-child {
+  border-right: 1px solid var(--color-border);
+}
+
+.ritz-lang-btn--active {
+  color:       var(--color-gold);
+  background:  var(--color-ivory-warm);
+}
+
+.ritz-lang-btn:not(.ritz-lang-btn--active):hover {
+  color: var(--color-text-secondary);
+}
+
 /* Goldlinie */
 .ritz-intro__divider {
   height: 1px;
