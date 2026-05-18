@@ -111,13 +111,6 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
         </div>
       </dl>
 
-      {/* ── Profil-Tags ────────────────────────────────────────────── */}
-      <ul className="ritz-card__profile" aria-label="Profil" role="list">
-        {drink.profile.map((tag) => (
-          <li key={tag} className="ritz-card__tag">{tag}</li>
-        ))}
-      </ul>
-
       {/* ── Trennlinie ─────────────────────────────────────────────── */}
       <div className="ritz-card__divider ritz-card__divider--bottom" aria-hidden="true" />
 
