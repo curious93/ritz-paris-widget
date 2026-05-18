@@ -30,15 +30,17 @@
   padding: clamp(1.25rem, 3vw, 2rem) clamp(1.5rem, 4vw, 3rem);
 }
 
-/* ── Intro-Block — volle Breite, kompakt ────────────────────────────────── */
+/* ── Intro-Block — Forest-Hintergrund wie Ritz Terrasse d'Été ───────────── */
 .ritz-intro {
   grid-area: intro;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
   text-align: center;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--color-border);
+  padding: 1.25rem clamp(1.5rem, 4vw, 3rem) 1rem;
+  margin: calc(-1 * clamp(1.25rem, 3vw, 2rem)) calc(-1 * clamp(1.5rem, 4vw, 3rem)) 0;
+  background: var(--color-forest);
+  border-bottom: none;
 }
 
 .ritz-intro__eyebrow {
@@ -47,7 +49,7 @@
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: rgba(250, 247, 242, 0.55);
 }
 
 .ritz-intro__headline {
@@ -56,7 +58,7 @@
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  color: var(--color-text-primary);
+  color: var(--color-gold-on-forest);
 }
 
 /* Subline auf Desktop ausblenden — spart ~70px Höhe */
@@ -65,7 +67,7 @@
   font-size: var(--text-label);
   font-weight: 300;
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: rgba(250, 247, 242, 0.65);
   max-width: 60ch;
   margin-inline: auto;
   display: none;
@@ -82,9 +84,9 @@
 .ritz-lang-btn {
   appearance:     none;
   background:     transparent;
-  border:         1px solid var(--color-border);
+  border:         1px solid rgba(250, 247, 242, 0.2);
   border-right:   none;
-  color:          var(--color-text-muted);
+  color:          rgba(250, 247, 242, 0.45);
   font-family:    var(--font-body);
   font-size:      0.625rem;
   letter-spacing: 0.12em;
@@ -96,23 +98,23 @@
 }
 
 .ritz-lang-btn:last-child {
-  border-right: 1px solid var(--color-border);
+  border-right: 1px solid rgba(250, 247, 242, 0.2);
 }
 
 .ritz-lang-btn--active {
-  color:       var(--color-gold);
-  background:  var(--color-ivory-warm);
+  color:       var(--color-gold-on-forest);
+  background:  rgba(250, 247, 242, 0.08);
 }
 
 .ritz-lang-btn:not(.ritz-lang-btn--active):hover {
-  color: var(--color-text-secondary);
+  color: rgba(250, 247, 242, 0.75);
 }
 
-/* Goldlinie */
+/* Goldlinie auf Forest */
 .ritz-intro__divider {
   height: 1px;
-  background: var(--color-gold);
-  opacity: 0.5;
+  background: var(--color-gold-on-forest);
+  opacity: 0.4;
   width: 3rem;
   margin-inline: auto;
 }

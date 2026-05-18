@@ -33,10 +33,11 @@ Vor jeder Implementierung lesen. Kein hardcodierter Farbwert im Code — nur CSS
   --color-ivory:        #FAF7F2;  /* Seitenhintergrund, Card-Hintergrund */
   --color-ivory-warm:   #F5EFE4;  /* leicht wärmerer Ton für Hover-Flächen */
 
-  /* Gold — das Ritz-Gold [~APPROX: Das Ritz verwendet ein warmes 18k-Gold] */
-  --color-gold:         #C9A96E;  /* Akzente, aktiver Slider-Thumb, Drink-Name */
-  --color-gold-light:   #E2C99A;  /* Gold auf hellem Grund, Hover-Shift */
-  --color-gold-dark:    #A07840;  /* Gold auf dunklem Grund, tiefe Akzente */
+  /* Gold — verifiziertes Ritz-Gold aus ritzparis.com [RITZ] */
+  --color-gold:         #D4A574;  /* Akzente, aktiver Slider-Thumb, Drink-Name */
+  --color-gold-light:   #E8C49A;  /* Gold auf hellem Grund, Hover-Shift */
+  --color-gold-dark:    #B0845A;  /* Gold auf dunklem Grund, tiefe Akzente */
+  --color-gold-on-forest: #D4A574; /* Gold auf Forest-Hintergrund — gleicher Wert, semantisch benannt */
 
   /* Schrift */
   --color-text-primary:   #1A1714;  /* Haupttext — fast schwarz, warm */
@@ -52,9 +53,11 @@ Vor jeder Implementierung lesen. Kein hardcodierter Farbwert im Code — nur CSS
   --color-bg-widget:    #FAF7F2;  /* Widget-Hintergrund — Ivory */
   --color-bg-card:      #F9F5EE;  /* ResultCard-Hintergrund */
 
-  /* Botanisch — tiefes Flaschengrün [BRIEFING] */
-  --color-forest:       #2E4238;  /* Profil-Tags, botanische Akzente */
-  --color-forest-muted: rgba(46, 66, 56, 0.12);  /* sehr transparente Fläche */
+  /* Botanisch — tiefes Flaschengrün [RITZ: Terrasse d'Été Farbwelt] */
+  --color-forest:         #2E4238;  /* Intro-Header Hintergrund, Profil-Tags, Akzente */
+  --color-forest-deep:    #1E2E26;  /* tieferer Ton für Hover auf Forest-Flächen */
+  --color-forest-muted:   rgba(46, 66, 56, 0.12);  /* sehr transparente Fläche auf Ivory */
+  --color-text-on-forest: #FAF7F2;  /* Ivory-Text auf Forest-Hintergrund */
 
   /* Status / Compliance */
   --color-disclaimer:   #8A7060;  /* Responsible-Drinking-Hinweis — dezent */

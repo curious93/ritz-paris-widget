@@ -9,9 +9,10 @@
   /* Farben */
   --color-ivory:          #FAF7F2;
   --color-ivory-warm:     #F5EFE4;
-  --color-gold:           #C9A96E;
-  --color-gold-light:     #E2C99A;
-  --color-gold-dark:      #A07840;
+  --color-gold:             #D4A574;
+  --color-gold-light:       #E8C49A;
+  --color-gold-dark:        #B0845A;
+  --color-gold-on-forest:   #D4A574;
   --color-text-primary:   #1A1714;
   --color-text-secondary: #6B5E52;
   --color-text-muted:     #A89880;
@@ -21,7 +22,9 @@
   --color-bg-widget:      #FAF7F2;
   --color-bg-card:        #F9F5EE;
   --color-forest:         #2E4238;
+  --color-forest-deep:    #1E2E26;
   --color-forest-muted:   rgba(46, 66, 56, 0.12);
+  --color-text-on-forest: #FAF7F2;
   --color-disclaimer:     #8A7060;
 
   /* Schriften */
