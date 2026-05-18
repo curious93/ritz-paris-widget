@@ -61,12 +61,14 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
           </>
         ) : (
           <div className="ritz-card__progress" aria-label={`${touchedCount} von 4 gewählt`}>
-            {([0, 1, 2, 3] as const).map((i) => (
-              <div
-                key={i}
-                className={`ritz-card__progress-dot${touched[i] ? ' ritz-card__progress-dot--done' : ''}`}
-              />
-            ))}
+            <div className="ritz-card__progress-dots">
+              {([0, 1, 2, 3] as const).map((i) => (
+                <div
+                  key={i}
+                  className={`ritz-card__progress-dot${touched[i] ? ' ritz-card__progress-dot--done' : ''}`}
+                />
+              ))}
+            </div>
             <span className="ritz-card__progress-label">{touchedCount} / 4</span>
           </div>
         )}
