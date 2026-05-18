@@ -9,7 +9,7 @@ export const en: Translations = {
   },
   sliders: [
     {
-      question: 'Your preference',
+      question: '🥃  Your preference',
       positions: [
         { label: 'Non-alcoholic',  subline: 'Tea, verjus, fruit, herbs, sparkling tea' },
         { label: 'Light',          subline: 'Low-ABV — vermouth, apéritif, champagne' },
@@ -17,7 +17,7 @@ export const en: Translations = {
       ],
     },
     {
-      question: 'How does your evening begin?',
+      question: '🌙  How does your evening begin?',
       positions: [
         { label: 'Still & private',   subline: 'Short, quiet drink — low carbonation, discreet presence' },
         { label: 'Elegant & open',    subline: 'Balanced, light freshness — for a convivial opening' },
@@ -25,7 +25,7 @@ export const en: Translations = {
       ],
     },
     {
-      question: 'Your character',
+      question: '🎩  Your character',
       positions: [
         { label: 'Gentle',       subline: 'Soft acidity, round sweetness, lower intensity' },
         { label: 'Precise',      subline: 'Clear structure, dry, citric, defined balance' },
@@ -33,7 +33,7 @@ export const en: Translations = {
       ],
     },
     {
-      question: 'Your preferred aroma?',
+      question: '🌿  Your preferred aroma?',
       positions: [
         { label: 'Fresh',        subline: 'Citrus, apple, mint, cucumber — bright, clean aromatics' },
         { label: 'Floral',       subline: 'Jasmine, rose, elderflower, peach — elegant garnish' },

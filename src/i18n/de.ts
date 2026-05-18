@@ -9,7 +9,7 @@ export const de: Translations = {
   },
   sliders: [
     {
-      question: 'Ihr Modus',
+      question: '🥃  Ihr Modus',
       positions: [
         { label: 'Sans alcool',       subline: 'Tee, Verjus, Frucht, Kräuter, Sparkling Tea' },
         { label: 'Leicht',            subline: 'Low-ABV — Vermouth, Apéritif, Champagne' },
@@ -17,7 +17,7 @@ export const de: Translations = {
       ],
     },
     {
-      question: 'Wie beginnt Ihr Abend?',
+      question: '🌙  Wie beginnt Ihr Abend?',
       positions: [
         { label: 'Still & privat',       subline: 'Kurzer, ruhiger Drink — wenig Kohlensäure, diskrete Präsenz' },
         { label: 'Elegant & offen',      subline: 'Ausbalanciert, leichte Frische — für einen geselligen Auftakt' },
@@ -25,7 +25,7 @@ export const de: Translations = {
       ],
     },
     {
-      question: 'Welche Haltung passt zu Ihnen?',
+      question: '🎩  Welche Haltung passt zu Ihnen?',
       positions: [
         { label: 'Sanft',         subline: 'Weiche Säure, runde Süße, niedrigere Intensität' },
         { label: 'Präzise',       subline: 'Klarer Aufbau, trockener, zitrisch, definierte Balance' },
@@ -33,7 +33,7 @@ export const de: Translations = {
       ],
     },
     {
-      question: 'Welche Aromatik spricht Sie an?',
+      question: '🌿  Welche Aromatik spricht Sie an?',
       positions: [
         { label: 'Frisch',        subline: 'Zitrus, Apfel, Minze, Gurke — helle, klare Aromatik' },
         { label: 'Blumig',        subline: 'Jasmin, Rose, Holunder, Pfirsich — elegante Garnitur' },

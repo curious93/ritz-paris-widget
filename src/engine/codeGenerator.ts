@@ -25,4 +25,4 @@ export const generateCode = (state: SliderState): string =>
     ABEND_CODE[state[1]],
     HALTUNG_CODE[state[2]],
     SPUR_CODE[state[3]],
-  ].join('-')
+  ].join(' · ')

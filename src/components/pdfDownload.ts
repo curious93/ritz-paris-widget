@@ -17,7 +17,7 @@ export async function downloadPdf(drink: DrinkResult, state: SliderState): Promi
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `ritz-paris-${generateCode(state).toLowerCase()}.pdf`
+  a.download = `ritz-paris-${generateCode(state).replace(/ · /g, '-').toLowerCase()}.pdf`
   a.click()
   URL.revokeObjectURL(url)
 }

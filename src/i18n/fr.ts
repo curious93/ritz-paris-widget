@@ -9,7 +9,7 @@ export const fr: Translations = {
   },
   sliders: [
     {
-      question: 'Votre mode',
+      question: '🥃  Votre mode',
       positions: [
         { label: 'Sans alcool',    subline: 'Thé, verjus, fruits, herbes, thé pétillant' },
         { label: 'Léger',          subline: 'Low-ABV — vermouth, apéritif, champagne' },
@@ -17,7 +17,7 @@ export const fr: Translations = {
       ],
     },
     {
-      question: 'Comment commence votre soirée ?',
+      question: '🌙  Comment commence votre soirée ?',
       positions: [
         { label: 'Discret & privé',   subline: 'Boisson courte et tranquille — peu de bulles, présence discrète' },
         { label: 'Élégant & ouvert',  subline: 'Équilibré, légère fraîcheur — pour un début convivial' },
@@ -25,7 +25,7 @@ export const fr: Translations = {
       ],
     },
     {
-      question: 'Quelle attitude vous correspond ?',
+      question: '🎩  Quelle attitude vous correspond ?',
       positions: [
         { label: 'Doux',          subline: 'Acidité douce, douceur ronde, intensité modérée' },
         { label: 'Précis',        subline: 'Structure claire, sec, citrique, équilibre défini' },
@@ -33,7 +33,7 @@ export const fr: Translations = {
       ],
     },
     {
-      question: 'Quelle aromatique vous attire ?',
+      question: '🌿  Quelle aromatique vous attire ?',
       positions: [
         { label: 'Frais',         subline: 'Agrumes, pomme, menthe, concombre — aromatique claire' },
         { label: 'Floral',        subline: 'Jasmin, rose, sureau, pêche — garniture élégante' },

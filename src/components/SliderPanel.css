@@ -105,12 +105,11 @@
 /* ── Subline der aktiven Position ────────────────────────────────────────── */
 .ritz-slider__subline {
   font-family: var(--font-body);
-  font-size: var(--text-subline);
-  font-weight: 300;
-  color: var(--color-text-muted);
+  font-size: var(--text-label);
+  font-weight: 400;
+  color: var(--color-text-secondary);
   line-height: 1.5;
   min-height: 1.5em;
-  /* Einblenden bei Wechsel — opacity + leichter Shift nach oben */
   animation: ritz-subline-appear var(--duration-reveal) var(--ease-settle);
 }
 
