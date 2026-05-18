@@ -11,26 +11,34 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 2rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 4vw, 2rem);
 }
 
-/* ── Widget-Container ────────────────────────────────────────────────────── */
+/* ── Widget-Container — 2-Spalten auf Desktop ───────────────────────────── */
 .ritz-widget {
   width: 100%;
-  max-width: 720px;
+  max-width: 1080px;
   background-color: var(--color-bg-widget);
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "intro  intro"
+    "sliders card";
+  column-gap: clamp(2rem, 4vw, 4rem);
+  row-gap: 2rem;
+  padding: clamp(1.75rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem);
 }
 
-/* ── Intro-Block ─────────────────────────────────────────────────────────── */
+/* ── Intro-Block — volle Breite ─────────────────────────────────────────── */
 .ritz-intro {
+  grid-area: intro;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
   text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .ritz-intro__eyebrow {
@@ -44,58 +52,64 @@
 
 .ritz-intro__headline {
   font-family: var(--font-display);
-  font-size: var(--text-headline);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--color-text-primary);
-  /* Kein bold — Serif-Eleganz kommt aus Größe und Schnitt, nicht Gewicht */
 }
 
 .ritz-intro__subline {
   font-family: var(--font-body);
-  font-size: var(--text-intro);
+  font-size: var(--text-label);
   font-weight: 300;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--color-text-secondary);
-  max-width: 52ch;
+  max-width: 60ch;
   margin-inline: auto;
 }
 
-/* Goldlinie — "zeichnet sich" beim Laden (Animations-Prinzip aus styles.md) */
+/* Goldlinie */
 .ritz-intro__divider {
   height: 1px;
   background: var(--color-gold);
   opacity: 0.5;
   width: 3rem;
   margin-inline: auto;
-  margin-top: 0.5rem;
 }
 
-/* ── Platzhalter (werden in Issue #3 und #6 ersetzt) ────────────────────── */
-.ritz-slider-placeholder,
-.ritz-card-placeholder {
-  border: 1px dashed var(--color-border);
-  padding: 3rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ── Slider-Bereich ─────────────────────────────────────────────────────── */
+.ritz-widget > .ritz-slider-panel {
+  grid-area: sliders;
+  align-self: start;
 }
 
-.ritz-placeholder-label {
-  font-family: var(--font-body);
-  font-size: var(--text-subline);
-  color: var(--color-text-muted);
-  letter-spacing: 0.08em;
+/* ── Card-Bereich — sticky so sie beim Scrollen sichtbar bleibt ─────────── */
+.ritz-widget > section.ritz-card {
+  grid-area: card;
+  align-self: start;
+  position: sticky;
+  top: 1.5rem;
 }
 
-/* ── Responsive: Mobile ──────────────────────────────────────────────────── */
-@media (max-width: 480px) {
+/* ── Responsive: Tablet & Mobile — 1 Spalte ─────────────────────────────── */
+@media (max-width: 720px) {
   .ritz-widget {
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "sliders"
+      "card";
+    max-width: 520px;
   }
 
+  .ritz-widget > section.ritz-card {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
   .ritz-intro__subline {
-    font-size: var(--text-body);
+    font-size: var(--text-subline);
   }
 }

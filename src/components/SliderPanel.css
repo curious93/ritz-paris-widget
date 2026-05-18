@@ -5,7 +5,7 @@
 .ritz-slider-panel {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1.75rem;
 }
 
 /* ── Einzelner Regler ────────────────────────────────────────────────────── */
@@ -116,7 +116,7 @@
 
 /* ── Trennlinie zwischen Reglern ─────────────────────────────────────────── */
 .ritz-slider + .ritz-slider {
-  padding-top: 2.5rem;
+  padding-top: 1.75rem;
   border-top: 1px solid var(--color-border);
 }
 
