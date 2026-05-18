@@ -46,11 +46,9 @@ function SingleSlider({ config, value, touched, onChange }: SingleSliderProps) {
         })}
       </div>
 
-      {touched && (
-        <p className="ritz-slider__subline" key={value}>
-          {config.positions[value].subline}
-        </p>
-      )}
+      <p className={`ritz-slider__subline${touched ? '' : ' ritz-slider__subline--hidden'}`} key={value}>
+        {config.positions[value].subline}
+      </p>
     </div>
   )
 }

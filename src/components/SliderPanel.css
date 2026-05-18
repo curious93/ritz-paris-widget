@@ -104,6 +104,10 @@
 }
 
 /* ── Subline der aktiven Position ────────────────────────────────────────── */
+.ritz-slider__subline--hidden {
+  visibility: hidden;
+}
+
 .ritz-slider__subline {
   font-family: var(--font-body);
   font-size: var(--text-label);
