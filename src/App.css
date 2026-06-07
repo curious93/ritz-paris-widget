@@ -20,7 +20,7 @@
   max-width: 1080px;
   background-color: var(--color-bg-widget);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "intro  intro"
@@ -45,7 +45,7 @@
 
 .ritz-intro__eyebrow {
   font-family: var(--font-body);
-  font-size: var(--text-subline);
+  font-size: var(--text-small);
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -54,7 +54,7 @@
 
 .ritz-intro__headline {
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-size: var(--text-headline);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -64,7 +64,7 @@
 /* Subline auf Desktop ausblenden — spart ~70px Höhe */
 .ritz-intro__subline {
   font-family: var(--font-body);
-  font-size: var(--text-label);
+  font-size: var(--text-small);
   font-weight: 300;
   line-height: 1.6;
   color: rgba(250, 247, 242, 0.65);
@@ -88,7 +88,7 @@
   border-right:   none;
   color:          rgba(250, 247, 242, 0.45);
   font-family:    var(--font-body);
-  font-size:      0.625rem;
+  font-size:      var(--text-micro);
   letter-spacing: 0.12em;
   padding:        0.25rem 0.5rem;
   cursor:         pointer;
@@ -125,12 +125,10 @@
   align-self: start;
 }
 
-/* ── Card-Bereich — sticky so sie beim Scrollen sichtbar bleibt ─────────── */
+/* ── Card-Bereich — immer so hoch wie der Slider-Bereich ───────────────── */
 .ritz-widget > section.ritz-card {
   grid-area: card;
-  align-self: start;
-  position: sticky;
-  top: 1.5rem;
+  align-self: stretch;
 }
 
 /* ── Responsive: Tablet & Mobile — 1 Spalte ─────────────────────────────── */
@@ -152,7 +150,7 @@
 
   .ritz-intro__subline {
     display: block;
-    font-size: var(--text-subline);
+    font-size: var(--text-small);
   }
 
   .ritz-intro {
@@ -161,6 +159,6 @@
   }
 
   .ritz-intro__headline {
-    font-size: 1.15rem;
+    font-size: var(--text-headline);
   }
 }

@@ -20,7 +20,7 @@ function App() {
   const [touched, setTouched] = useState<[boolean, boolean, boolean, boolean]>([false, false, false, false])
   const [lang, setLang] = useState<Lang>(getSavedLang)
   const t = translations[lang]
-  const drink = drinkEngine(sliderState)
+  const drink = drinkEngine(sliderState, t.drinks)
 
   const handleLang = (l: Lang) => {
     setLang(l)
@@ -73,6 +73,7 @@ function App() {
           touched={touched}
           t={t.card}
           quote={t.quote}
+          pdf={t.pdf}
         />
 
       </div>

@@ -9,7 +9,7 @@ export const de: Translations = {
   },
   sliders: [
     {
-      question: '🥃  Ihr Modus',
+      question: 'Ihr Modus',
       positions: [
         { label: 'Sans alcool',       subline: 'Ein vollständiger Genuss ohne Alkohol — Tee, Verjus, Frucht und Kräuter in präzisen Kompositionen.' },
         { label: 'Leicht',            subline: 'Wenig Alkohol, viel Charakter — Vermouth, Champagne oder Apéritif für einen leichten, eleganten Abend.' },
@@ -17,7 +17,7 @@ export const de: Translations = {
       ],
     },
     {
-      question: '🌙  Wie beginnt Ihr Abend?',
+      question: 'Wie beginnt Ihr Abend?',
       positions: [
         { label: 'Still & privat',       subline: 'Ein kurzer, ruhiger Drink für einen Abend, der leise beginnt — wenig Kohlensäure, diskrete Präsenz.' },
         { label: 'Elegant & offen',      subline: 'Ausbalanciert und einladend — für einen geselligen Auftakt mit leichter Frische und klarer Form.' },
@@ -25,7 +25,7 @@ export const de: Translations = {
       ],
     },
     {
-      question: '🎩  Welche Haltung passt zu Ihnen?',
+      question: 'Welche Haltung passt zu Ihnen?',
       positions: [
         { label: 'Sanft',         subline: 'Weich, rund und einladend — geringe Intensität, wenig Säure, ein Drink der sich nicht aufdrängt.' },
         { label: 'Präzise',       subline: 'Klar strukturiert, trocken und zitrisch — jedes Element hat seinen definierten Platz.' },
@@ -33,7 +33,7 @@ export const de: Translations = {
       ],
     },
     {
-      question: '🌿  Welche Aromatik spricht Sie an?',
+      question: 'Welche Aromatik spricht Sie an?',
       positions: [
         { label: 'Frisch',        subline: 'Hell und lebendig — Zitrus, Apfel, Minze und Gurke für eine klare, belebende Aromatik.' },
         { label: 'Blumig',        subline: 'Zart und elegant — Jasmin, Rose, Holunder und Pfirsich mit einer feinen floralen Garnitur.' },
@@ -50,6 +50,7 @@ export const de: Translations = {
     garnitur:   'Garnitur',
     pdfButton:  'Rezeptkarte',
     pdfLoading: 'Wird erstellt…',
+    codeLabel:  'Ihr persönlicher Code',
     disclaimer:   'Dieser Drink enthält Alkohol. Genuss in Maßen — Bitte trinken Sie verantwortungsvoll. Nicht geeignet für Personen unter 18 Jahren.',
     seasonalNote: 'Die finale Komposition hängt von Saison und Verfügbarkeit ab. Das Barteam des Ritz Paris verfeinert den Drink vor Ort.',
   },
@@ -61,7 +62,73 @@ export const de: Translations = {
   },
   pdf: {
     byline: 'Bar Hemingway · Place Vendôme · Paris',
-    footer: 'Ritz Paris — Votre composition personnelle',
+    footer: 'Ritz Paris — Ihre persönliche Komposition',
   },
   langLabel: 'DE',
+  drinks: {
+    anchors: {
+      '0-0-0-0': { story: 'Für einen Abend, der leise beginnt. Kühl, klar und von unaufdringlicher Frische.', base: 'Gurken-Verjus', accents: ['Minze', 'Yuzu', 'Stilles Wasser'], glass: 'Nick & Nora', garnish: 'Minzzweig', profile: ['frisch', 'leise', 'klar'] },
+      '0-0-0-1': { story: 'Weich und blumig, wie der erste Moment eines ruhigen Morgens.', base: 'Holunderblüten-Cordial', accents: ['Rosenessenz', 'Verjus', 'Mineralwasser'], glass: 'Nick & Nora', garnish: 'Rosenblüte', profile: ['blumig', 'weich', 'leicht'] },
+      '0-0-0-2': { story: 'Ein stilles, tiefes Getränk — Earl Grey und Gewürz für einen introvertierten Abend.', base: 'Earl-Grey-Kaltaufguss', accents: ['Bergamotte', 'Kardamom', 'Honig'], glass: 'Nick & Nora', garnish: 'Orangenzeste', profile: ['tief', 'würzig', 'warm'] },
+      '0-1-1-0': { story: 'Präzise ausbalanciert, frisch und klar — für einen eleganten Auftakt ohne Alkohol.', base: 'Zitronenmelissen-Tee', accents: ['Grapefruit', 'Agavensirup', 'Soda'], glass: 'Coupette', garnish: 'Grapefruitscheibe', profile: ['zitrisch', 'präzise', 'frisch'] },
+      '0-1-1-1': { story: 'Elegant und blumig — Jasmin und Pfirsich in einer klaren Komposition.', base: 'Jasmin-Tee', accents: ['Pfirsich-Nektar', 'Zitronensaft', 'Soda'], glass: 'Coupette', garnish: 'Pfirsichscheibe', profile: ['blumig', 'elegant', 'hell'] },
+      '0-1-2-2': { story: 'Charaktervoll und geheimnisvoll — Tee und Kakao für einen unerwarteten Abend.', base: 'Schwarzer Tee', accents: ['Kakao-Wasser', 'Orangenschale', 'Ingwer'], glass: 'Coupette', garnish: 'Kakaopulver-Rim', profile: ['dunkel', 'tief', 'überraschend'] },
+      '0-2-2-0': { story: 'Funkelnd und frisch — Sparkling Tea mit Zitrus für einen glänzenden Auftakt.', base: 'Sparkling Tea', accents: ['Zitronenthymian', 'Grapefruit', 'Agave'], glass: 'Flute', garnish: 'Thymianzweig', profile: ['funkelnd', 'frisch', 'hell'] },
+      '0-2-1-1': { story: 'Perlig, elegant und blumig — für einen Abend der gesehen werden darf.', base: 'Sparkling Tea mit Rose', accents: ['Lychee', 'Holunder', 'Zitrus'], glass: 'Flute', garnish: 'Rosenblatt', profile: ['perlig', 'blumig', 'glänzend'] },
+      '0-2-2-2': { story: 'Ein funkelnder Abschluss ohne Alkohol — warm, tief und mit bleibender Aromatik.', base: 'Sparkling Tea', accents: ['Orangenblüte', 'Gewürznelke', 'Kandiszucker'], glass: 'Highball', garnish: 'Sternanis', profile: ['funkelnd', 'warm', 'geheimnisvoll'] },
+      '1-0-0-0': { story: 'Leise und präzise — ein kurzer Vermouth-Drink für den stillen Beginn.', base: 'Weißer Vermouth', accents: ['Gurke', 'Yuzu', 'Stilles Wasser'], glass: 'Nick & Nora', garnish: 'Gurkenscheibe', profile: ['frisch', 'leise', 'mineralisch'] },
+      '1-0-1-1': { story: 'Präzise und blumig — Lillet und Holunder in eleganter Balance.', base: 'Lillet Blanc', accents: ['Holunderblüte', 'Bergamotte', 'Tonic'], glass: 'Nick & Nora', garnish: 'Holunderblüte', profile: ['blumig', 'präzise', 'hell'] },
+      '1-1-1-0': { story: 'Ein eleganter Sommerdrink — Champagne und Zitrus für den offenen Abend.', base: 'Champagne', accents: ['Zitrone', 'Holunder', 'Minze'], glass: 'Flute', garnish: 'Zitronenzeste', profile: ['frisch', 'perlig', 'elegant'] },
+      '1-1-2-1': { story: 'Bitter und blumig — Aperol und Rose für einen charaktervollen Auftakt.', base: 'Aperol', accents: ['Rosensirup', 'Zitrus', 'Prosecco'], glass: 'Coupette', garnish: 'Rosenblatt', profile: ['bitter', 'blumig', 'lebendig'] },
+      '1-1-2-2': { story: 'Warm und tief — Vermouth rosso mit Gewürz für einen charaktervollen Abend.', base: 'Vermouth Rosso', accents: ['Orange', 'Zimt', 'Angostura'], glass: 'Rocks Glass', garnish: 'Orangenzeste', profile: ['warm', 'würzig', 'tief'] },
+      '1-2-1-0': { story: 'Funkelnd und frisch — Champagne pur mit einem Hauch Zitrus.', base: 'Champagne', accents: ['Grapefruit-Bitters', 'Zitronenöl'], glass: 'Flute', garnish: 'Zitronenzeste', profile: ['funkelnd', 'frisch', 'elegant'] },
+      '1-2-2-2': { story: 'Glanzvoll und tief — Champagne mit Gewürz für einen Abend der in Erinnerung bleibt.', base: 'Champagne', accents: ['Kardamom-Sirup', 'Orangenbitter', 'Ingwer'], glass: 'Flute', garnish: 'Kandierte Orangenschale', profile: ['funkelnd', 'würzig', 'bleibend'] },
+      '1-2-0-1': { story: 'Sanft und perlig — Crémant und Rose für einen glänzenden, leichten Auftakt.', base: 'Crémant', accents: ['Rosensirup', 'Lychee', 'Himbeere'], glass: 'Flute', garnish: 'Himbeere', profile: ['perlig', 'blumig', 'sanft'] },
+      '1-0-2-2': { story: 'Für den stillen Charakterkopf — Sherry und Gewürz in einem kurzen, tiefen Glas.', base: 'Fino Sherry', accents: ['Orange', 'Wermut-Bitters', 'Salz'], glass: 'Nick & Nora', garnish: 'Orangenzeste', profile: ['trocken', 'salzig', 'tief'] },
+      '2-0-0-0': { story: 'Für den stillen Abend — ein kurzer Gin-Drink mit klarer Frische und wenig Lärm.', base: 'London Dry Gin', accents: ['Gurke', 'Limette', 'Dry Vermouth'], glass: 'Nick & Nora', garnish: 'Gurkenscheibe', profile: ['frisch', 'klar', 'diskret'] },
+      '2-0-2-2': { story: 'Dunkel und ruhig — Cognac mit Orangenbitter für den introvertierten Kenner.', base: 'Cognac VSOP', accents: ['Grand Marnier', 'Angostura', 'Orangenzeste'], glass: 'Nick & Nora', garnish: 'Orangenzeste', profile: ['tief', 'warm', 'charaktervoll'] },
+      '2-1-1-0': { story: 'Präzise und frisch — ein eleganter Gin-Gimlet mit Pariser Anmut.', base: 'Gin', accents: ['Limettensaft', 'Zuckersirup', 'Gurkenwasser'], glass: 'Coupette', garnish: 'Limettenzeste', profile: ['zitrisch', 'präzise', 'clean'] },
+      '2-1-1-1': { story: 'Elegant und blumig — Gin mit Rose und Litschi für einen offenen Abend.', base: 'Floraler Gin', accents: ['Rosenlikör', 'Litschi', 'Zitrus'], glass: 'Coupette', garnish: 'Rosenblüte', profile: ['blumig', 'elegant', 'weich'] },
+      '2-1-2-2': { story: 'Ein Drink für einen Abend, der nicht laut sein muss, um gesehen zu werden. Warm, präzise und mit einer dunklen Zitrusspur, die bleibt.', base: 'Cognac', accents: ['Orange', 'Verjus', 'Kakao-Bitter', 'Ginger-Finish'], glass: 'Rocks Glass', garnish: 'Orangenzeste', profile: ['tief', 'warm', 'zitrisch', 'elegant'] },
+      '2-2-1-0': { story: 'Funkelnd, frisch und präzise — der klassische Highball im Ritz-Stil.', base: 'Vodka', accents: ['Grapefruit', 'Tonic', 'Minze'], glass: 'Highball', garnish: 'Minzzweig', profile: ['funkelnd', 'frisch', 'klar'] },
+      '2-2-2-2': { story: 'Für Abende, die in Geschichte geschrieben werden. Rum, Kakao und Orange — ein langer, tiefer Drink aus der Bar Hemingway.', base: 'Dunkler Rum', accents: ['Kakao-Likör', 'Orange', 'Angostura', 'Soda'], glass: 'Highball', garnish: 'Kandierte Orangenschale', profile: ['tief', 'dunkel', 'funkelnd', 'bleibend'] },
+      '2-2-0-1': { story: 'Sanft und funkelnd — Calvados mit Champagne und Rose für einen glänzenden Auftakt.', base: 'Calvados', accents: ['Rosensirup', 'Champagne', 'Zitrus'], glass: 'Flute', garnish: 'Rosenblüte', profile: ['fruchtig', 'blumig', 'perlig'] },
+      '2-0-1-1': { story: 'Still und präzise — ein trockener Martini mit blumiger Note für den ruhigen Kenner.', base: 'Gin', accents: ['Dry Vermouth', 'Orangenblüte', 'Zitronenöl'], glass: 'Nick & Nora', garnish: 'Zitronenzeste', profile: ['trocken', 'blumig', 'präzise'] },
+    },
+    fallbackStory: 'Ein persönlicher Ritz-Moment, komponiert nach Ihren Präferenzen.',
+    fallbackBase: {
+      'non-alcoholic-round': 'Holunderblüten-Verjus',
+      'non-alcoholic-dry':   'Zitronenmelissen-Tee',
+      'non-alcoholic-deep':  'Earl-Grey-Kaltaufguss',
+      'low-abv-round':       'Lillet Blanc',
+      'low-abv-dry':         'Fino Sherry',
+      'low-abv-deep':        'Vermouth Rosso',
+      'spirit-round':        'Floraler Gin',
+      'spirit-dry':          'London Dry Gin',
+      'spirit-deep':         'Cognac VSOP',
+    },
+    fallbackAccents: {
+      'citrus-fresh': ['Zitrone', 'Limette', 'Minze'],
+      'floral':       ['Holunder', 'Rose', 'Pfirsich'],
+      'dark-spice':   ['Orange', 'Kakao-Bitter', 'Ingwer'],
+    },
+    fallbackGarnish: {
+      'herb-citrus':  'Zitronenzeste',
+      'flower-fruit': 'Rosenblüte',
+      'peel-spice':   'Orangenzeste',
+    },
+    glassHighball: 'Highball',
+    profileTags: {
+      'citrus-fresh': 'frisch',
+      'citrus-fresh-2': 'zitrisch',
+      'floral':       'blumig',
+      'floral-2':     'elegant',
+      'dark-spice':   'tief',
+      'dark-spice-2': 'würzig',
+      'round':        'rund',
+      'dry':          'trocken',
+      'deep':         'warm',
+      'bitter':       'charaktervoll',
+    },
+  },
 }

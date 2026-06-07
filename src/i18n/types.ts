@@ -24,6 +24,7 @@ export interface Translations {
     garnitur:     string
     pdfButton:    string
     pdfLoading:   string
+    codeLabel:    string
     disclaimer:   string
     seasonalNote: string
   }
@@ -45,6 +46,46 @@ export interface Translations {
   }
   /** Kürzel für den Sprachumschalter, z.B. "DE" */
   langLabel: string
+  /**
+   * Lokalisierte Drink-Inhalte (story, base, accents, glass, garnish)
+   * für alle 27 Anchor-Drinks + Fallback-Engine-Strings.
+   * Key = SliderState als String z.B. "0-0-0-0"
+   */
+  drinks: DrinkLocale
+}
+
+/** Lokalisierter Inhalt eines einzelnen Anchor-Drinks. */
+export interface DrinkContent {
+  /** Atmosphärische Beschreibung */
+  story: string
+  /** Basis-Zutat */
+  base: string
+  /** Aromatische Akzente */
+  accents: string[]
+  /** Glastyp */
+  glass: string
+  /** Garnitur */
+  garnish: string
+  /** Profil-Tags */
+  profile: string[]
+}
+
+/** Alle lokalisierten Drink-Inhalte. Key = "modus-abend-haltung-spur" */
+export interface DrinkLocale {
+  /** Anchor-Drinks, key z.B. "2-2-2-2" */
+  anchors: Record<string, DrinkContent>
+  /** Fallback-Story wenn kein Anchor-Match */
+  fallbackStory: string
+  /** Fallback-Basis-Zutaten, key z.B. "spirit-dry" */
+  fallbackBase: Record<string, string>
+  /** Fallback-Akzente, key z.B. "citrus-fresh" */
+  fallbackAccents: Record<string, string[]>
+  /** Fallback-Garnituren, key z.B. "herb-citrus" */
+  fallbackGarnish: Record<string, string>
+  /** Fallback-Glastyp wenn sparkling */
+  glassHighball: string
+  /** Profil-Tags nach aromaFamily + sweetness */
+  profileTags: Record<string, string>
 }
 
 /** Konfiguration eines einzelnen Sliders. */

@@ -1,6 +1,7 @@
 import { pdf } from '@react-pdf/renderer'
 import { createElement } from 'react'
 import { type DrinkResult, type SliderState } from '../types/drink'
+import { type Translations } from '../i18n/types'
 import { generateCode } from '../engine/codeGenerator'
 import { PdfCard } from './PdfCard'
 
@@ -10,10 +11,17 @@ import { PdfCard } from './PdfCard'
  *
  * @param drink - DrinkResult
  * @param state - SliderState
+ * @param t - Lokalisierte Card-Texte
+ * @param pdfT - Lokalisierte PDF-Texte
  * @returns Promise<void> — löst Browser-Download aus
  */
-export async function downloadPdf(drink: DrinkResult, state: SliderState): Promise<void> {
-  const blob = await pdf(createElement(PdfCard, { drink, state })).toBlob()
+export async function downloadPdf(
+  drink: DrinkResult,
+  state: SliderState,
+  t: Translations['card'],
+  pdfT: Translations['pdf'],
+): Promise<void> {
+  const blob = await pdf(createElement(PdfCard, { drink, state, t, pdf: pdfT })).toBlob()
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url

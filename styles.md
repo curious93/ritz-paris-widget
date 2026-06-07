@@ -87,20 +87,19 @@ Vor jeder Implementierung lesen. Kein hardcodierter Farbwert im Code — nur CSS
 
 > **Hinweis:** `Cormorant Garamond` und `Jost` sind Google Fonts — kostenlos, lizenzfrei, und treffen den Ritz-Ton sehr gut. Laden via `@import` in `index.css`.
 
-### Größen
+### Größen — 5 Stufen
 
 ```css
 :root {
-  --text-drink-name:  clamp(1.75rem, 4vw, 2.5rem);  /* Drink-Titel, prominent */
-  --text-headline:    clamp(1.25rem, 2.5vw, 1.75rem);
-  --text-intro:       1.125rem;   /* Intro-Text Widget */
-  --text-body:        1rem;       /* Fließtext, Story */
-  --text-label:       0.875rem;   /* Slider-Labels */
-  --text-subline:     0.8125rem;  /* Slider-Sublines, erklärende Texte */
-  --text-disclaimer:  0.75rem;    /* Compliance-Texte, Hinweise */
-  --text-code:        0.9375rem;  /* Persönlicher Code */
+  --text-drink-name:  clamp(1.75rem, 4vw, 2.5rem);  /* Drink-Name */
+  --text-headline:    clamp(1.1rem, 2vw, 1.45rem);   /* Intro-Headline, große Labels */
+  --text-body:        0.9375rem;                      /* Fließtext, Detail-Werte */
+  --text-small:       0.8125rem;                      /* Buttons, Labels, Sublines, Eyebrow */
+  --text-micro:       0.75rem;                        /* Disclaimer, Code, Lang-Switch */
 }
 ```
+
+> Keine anderen Schriftgrößen im Code — kein hardcodiertes `rem`/`px`. Responsive Anpassungen über `clamp()` in den Tokens, nicht in den Komponenten.
 
 ### Typografie-Regeln
 
@@ -363,15 +362,12 @@ Der Slider hat exakt 3 Positionen (keine freie Skala). Er verhält sich wie ein 
   --font-body:    'Jost', 'Optima', system-ui, sans-serif;
   --font-mono:    'Courier Prime', 'Courier New', monospace;
 
-  /* Schriftgrößen */
+  /* Schriftgrößen — 5 Stufen */
   --text-drink-name:  clamp(1.75rem, 4vw, 2.5rem);
-  --text-headline:    clamp(1.25rem, 2.5vw, 1.75rem);
-  --text-intro:       1.125rem;
-  --text-body:        1rem;
-  --text-label:       0.875rem;
-  --text-subline:     0.8125rem;
-  --text-disclaimer:  0.75rem;
-  --text-code:        0.9375rem;
+  --text-headline:    clamp(1.1rem, 2vw, 1.45rem);
+  --text-body:        0.9375rem;
+  --text-small:       0.8125rem;
+  --text-micro:       0.75rem;
 
   /* Animation */
   --ease-settle:    cubic-bezier(0.25, 0.46, 0.45, 0.94);

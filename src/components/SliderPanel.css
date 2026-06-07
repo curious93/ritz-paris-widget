@@ -17,7 +17,7 @@
 
 .ritz-slider__question {
   font-family: var(--font-body);
-  font-size: var(--text-label);
+  font-size: var(--text-small);
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -49,9 +49,9 @@
   text-align: center;
   /* Typografie — clamp verhindert Zeilenumbruch bei langen Labels */
   font-family: var(--font-body);
-  font-size: clamp(0.65rem, 2vw, var(--text-subline));
+  font-size: clamp(0.7rem, 2vw, var(--text-small));
   font-weight: 400;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   line-height: 1.3;
   /* Transition — ease-settle aus styles.md */
   transition:
@@ -76,6 +76,7 @@
   background-color: var(--color-ivory-warm);
   color: var(--color-text-primary);
   font-weight: 500;
+  border-bottom: 2px solid var(--color-gold);
   /* Settle-Effekt beim Aktivieren */
   animation: ritz-settle 200ms var(--ease-settle);
 }
@@ -86,23 +87,6 @@
   100% { transform: scale(1); }
 }
 
-/* Goldlinie unter aktivem Button */
-.ritz-slider__btn--active::after {
-  content: '';
-  display: block;
-  height: 2px;
-  background: var(--color-gold);
-  margin-top: 0.5rem;
-  /* Linie "zeichnet sich" von links — Animations-Prinzip aus styles.md */
-  animation: ritz-draw-line var(--duration-draw) var(--ease-settle) forwards;
-  transform-origin: left center;
-}
-
-@keyframes ritz-draw-line {
-  from { transform: scaleX(0); opacity: 0; }
-  to   { transform: scaleX(1); opacity: 1; }
-}
-
 /* ── Subline der aktiven Position ────────────────────────────────────────── */
 .ritz-slider__subline--hidden {
   visibility: hidden;
@@ -110,7 +94,7 @@
 
 .ritz-slider__subline {
   font-family: var(--font-body);
-  font-size: var(--text-label);
+  font-size: var(--text-small);
   font-weight: 400;
   color: var(--color-text-secondary);
   line-height: 1.4;
@@ -140,13 +124,13 @@
   }
 
   .ritz-slider__btn {
-    font-size: 0.65rem;
+    font-size: var(--text-micro);
     padding: 0.5rem 0.2rem;
     letter-spacing: 0;
   }
 
   .ritz-slider__question {
-    font-size: 0.7rem;
+    font-size: var(--text-micro);
     letter-spacing: 0.1em;
   }
 }

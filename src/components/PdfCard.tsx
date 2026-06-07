@@ -1,6 +1,23 @@
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer'
+import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer'
 import { type DrinkResult, type SliderState } from '../types/drink'
+import { type Translations } from '../i18n/types'
 import { generateCode } from '../engine/codeGenerator'
+
+Font.register({
+  family: 'CormorantGaramond',
+  fonts: [
+    { src: new URL('../assets/fonts/CormorantGaramond-Regular.ttf', import.meta.url).href, fontWeight: 400 },
+    { src: new URL('../assets/fonts/CormorantGaramond-Italic.ttf', import.meta.url).href, fontWeight: 400, fontStyle: 'italic' },
+  ],
+})
+
+Font.register({
+  family: 'Jost',
+  fonts: [
+    { src: new URL('../assets/fonts/Jost-Regular.ttf', import.meta.url).href, fontWeight: 400 },
+    { src: new URL('../assets/fonts/Jost-Medium.ttf', import.meta.url).href, fontWeight: 500 },
+  ],
+})
 
 // ─── Ritz-Designtokens für PDF (keine CSS-Custom-Properties in react-pdf) ──
 const C = {
@@ -19,7 +36,7 @@ const styles = StyleSheet.create({
   page: {
     backgroundColor: C.ivory,
     padding: 48,
-    fontFamily: 'Helvetica',
+    fontFamily: 'Jost',
   },
   eyebrow: {
     fontSize: 7,
@@ -27,9 +44,18 @@ const styles = StyleSheet.create({
     color: C.textMuted,
     textTransform: 'uppercase',
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: 4,
+  },
+  eyebrowVoila: {
+    fontSize: 7,
+    letterSpacing: 2.5,
+    color: C.textMuted,
+    textTransform: 'uppercase',
+    textAlign: 'center',
+    marginBottom: 10,
   },
   name: {
+    fontFamily: 'CormorantGaramond',
     fontSize: 28,
     color: C.gold,
     textAlign: 'center',
@@ -45,7 +71,9 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   story: {
-    fontSize: 9.5,
+    fontFamily: 'CormorantGaramond',
+    fontStyle: 'italic',
+    fontSize: 11,
     color: C.textSec,
     textAlign: 'center',
     lineHeight: 1.65,
@@ -74,40 +102,20 @@ const styles = StyleSheet.create({
     color: C.textPrim,
     flex: 1,
   },
-  profileRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-    marginTop: 14,
-    marginBottom: 16,
-  },
-  tag: {
-    fontSize: 7,
-    letterSpacing: 1.2,
-    color: C.textSec,
-    textTransform: 'uppercase',
-    borderWidth: 0.5,
-    borderColor: C.border,
-    paddingHorizontal: 6,
-    paddingVertical: 3,
-  },
   footerDivider: {
     height: 0.5,
     backgroundColor: C.borderFine,
     marginBottom: 12,
+    marginTop: 8,
   },
-  codeBox: {
-    borderWidth: 0.5,
-    borderColor: C.border,
-    alignSelf: 'flex-start',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+  codeLine: {
+    fontSize: 7.5,
+    color: C.textSec,
+    letterSpacing: 1,
     marginBottom: 10,
   },
-  codeText: {
-    fontSize: 9,
-    letterSpacing: 3,
-    color: C.textSec,
+  codeValue: {
+    letterSpacing: 2,
     fontFamily: 'Courier',
   },
   seasonal: {
@@ -141,25 +149,31 @@ interface PdfCardProps {
   drink: DrinkResult
   /** SliderState für Code-Generierung */
   state: SliderState
+  /** Lokalisierte Texte */
+  t: Translations['card']
+  /** PDF-Byline und Footer */
+  pdf: Translations['pdf']
 }
 
 /**
  * React-PDF-Dokument für die Ritz-Rezeptkarte.
- * Wird via PDFDownloadLink oder pdf().toBlob() gerendert.
  *
  * @param props - Komponenten-Props
  * @param props.drink - DrinkResult mit allen Feldern
  * @param props.state - SliderState für persönlichen Code
+ * @param props.t - Lokalisierte Card-Texte
+ * @param props.pdf - Lokalisierte PDF-Texte
  * @returns Ein react-pdf Document
  */
-export function PdfCard({ drink, state }: PdfCardProps) {
+export function PdfCard({ drink, state, t, pdf }: PdfCardProps) {
   const code = generateCode(state)
 
   return (
     <Document title={`Ritz Paris — ${drink.name}`} author="Bar Hemingway · Ritz Paris">
       <Page size="A5" style={styles.page}>
 
-        <Text style={styles.eyebrow}>Bar Hemingway · Place Vendôme · Paris</Text>
+        <Text style={styles.eyebrow}>{pdf.byline}</Text>
+        <Text style={styles.eyebrowVoila}>{t.eyebrow}  {t.subeyebrow}</Text>
         <Text style={styles.name}>{drink.name}</Text>
         <View style={styles.dividerCenter} />
         <Text style={styles.story}>{drink.story}</Text>
@@ -167,48 +181,37 @@ export function PdfCard({ drink, state }: PdfCardProps) {
         <View style={styles.dividerFull} />
 
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Basis</Text>
+          <Text style={styles.detailLabel}>{t.basis}</Text>
           <Text style={styles.detailValue}>{drink.base}</Text>
         </View>
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Aromatik</Text>
+          <Text style={styles.detailLabel}>{t.aromatik}</Text>
           <Text style={styles.detailValue}>{drink.accents.join(' · ')}</Text>
         </View>
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Glas</Text>
+          <Text style={styles.detailLabel}>{t.glas}</Text>
           <Text style={styles.detailValue}>{drink.glass}</Text>
         </View>
         <View style={styles.detailRow}>
-          <Text style={styles.detailLabel}>Garnitur</Text>
+          <Text style={styles.detailLabel}>{t.garnitur}</Text>
           <Text style={styles.detailValue}>{drink.garnish}</Text>
-        </View>
-
-        <View style={styles.profileRow}>
-          {drink.profile.map((tag) => (
-            <View key={tag} style={styles.tag}>
-              <Text>{tag.toUpperCase()}</Text>
-            </View>
-          ))}
         </View>
 
         <View style={styles.footerDivider} />
 
-        <View style={styles.codeBox}>
-          <Text style={styles.codeText}>{code}</Text>
-        </View>
+        <Text style={styles.codeLine}>
+          {t.codeLabel}{'  '}<Text style={styles.codeValue}>{code}</Text>
+        </Text>
 
-        <Text style={styles.seasonal}>{drink.seasonalNote}</Text>
+        <Text style={styles.seasonal}>{t.seasonalNote}</Text>
 
         {drink.abvLevel === 'full' && (
-          <Text style={styles.disclaimer}>
-            Dieser Drink enthält Alkohol. Genuss in Maßen — bitte trinken Sie verantwortungsvoll. Nicht geeignet für Personen unter 18 Jahren.
-          </Text>
+          <Text style={styles.disclaimer}>{t.disclaimer}</Text>
         )}
 
-        <Text style={styles.ritzLine}>Ritz Paris — Votre composition personnelle</Text>
+        <Text style={styles.ritzLine}>{pdf.footer}</Text>
 
       </Page>
     </Document>
   )
 }
-

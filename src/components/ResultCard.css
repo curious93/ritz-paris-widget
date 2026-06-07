@@ -17,38 +17,38 @@
   background:    var(--color-bg-card);
   border:        1px solid var(--color-border);
   border-radius: 2px;
-  padding:       clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 2.25rem);
+  padding:       clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 1.75rem);
   display:       flex;
   flex-direction: column;
-  gap:           1.5rem;
+  gap:           1rem;
   animation:     ritz-card-in 280ms var(--ease-settle) both;
+  box-shadow:    0 4px 24px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+  height:        100%;
+  box-sizing:    border-box;
+  min-width:     0;
 }
 
 /* ── Header ──────────────────────────────────────────────────────────────── */
 .ritz-card__header {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
   text-align: center;
   animation: ritz-card-in var(--duration-reveal) var(--ease-settle) both;
 }
 
 .ritz-card__eyebrow {
-  font-family:    var(--font-display);
-  font-size:      clamp(1.4rem, 3vw, 1.9rem);
+  font-family:    var(--font-body);
+  font-size:      var(--text-small);
   font-weight:    400;
-  font-style:     italic;
-  letter-spacing: 0.02em;
-  color:          var(--color-gold);
+  font-style:     normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--color-forest);
 }
 
 .ritz-card__subeyebrow {
-  font-family:    var(--font-body);
-  font-size:      var(--text-subline);
-  font-weight:    400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color:          var(--color-text-muted);
+  margin-left: 0.4em;
 }
 
 @keyframes ritz-name-in {
@@ -89,9 +89,13 @@
 /* ── Story ────────────────────────────────────────────────────────────────── */
 .ritz-card__story {
   font-family:    var(--font-body);
-  font-size:      var(--text-body);
+  font-size:      var(--text-small);
   font-weight:    300;
-  line-height:    1.7;
+  line-height:    1.5;
+  height:         1.5em;
+  white-space:    nowrap;
+  overflow:       hidden;
+  text-overflow:  ellipsis;
   color:          var(--color-text-secondary);
   text-align:     center;
   font-style:     italic;
@@ -103,7 +107,7 @@
   display:    grid;
   grid-template-columns: auto 1fr;
   gap:        0.6rem 1.5rem;
-  margin:     0;
+  margin-block: auto;
   animation:  ritz-card-in var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 2) both;
 }
 
@@ -113,7 +117,7 @@
 
 .ritz-card__detail-label {
   font-family:    var(--font-body);
-  font-size:      var(--text-subline);
+  font-size:      var(--text-small);
   font-weight:    400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -143,7 +147,7 @@
 
 .ritz-card__tag {
   font-family:    var(--font-body);
-  font-size:      var(--text-subline);
+  font-size:      var(--text-small);
   font-weight:    400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -157,25 +161,23 @@
 .ritz-card__footer {
   display:        flex;
   flex-direction: column;
-  gap:            0.75rem;
+  gap:            0.5rem;
+  margin-top:     auto;
   animation:      ritz-card-in var(--duration-reveal) var(--ease-settle) calc(var(--duration-stagger) * 5) both;
 }
 
-.ritz-card__footer-top {
-  display:     flex;
-  align-items: center;
-  gap:         1rem;
-  flex-wrap:   wrap;
+.ritz-card__code-footnote {
+  font-family:    var(--font-body);
+  font-size:      var(--text-micro);
+  font-weight:    300;
+  color:          var(--color-text-muted);
+  letter-spacing: 0.03em;
+  margin-top:     0.25rem;
 }
 
-.ritz-card__code {
+.ritz-card__code-footnote span {
   font-family:    var(--font-mono);
-  font-size:      var(--text-code);
-  letter-spacing: 0.2em;
-  color:          var(--color-text-secondary);
-  border:         1px solid var(--color-border);
-  padding:        0.35rem 0.7rem;
-  display:        inline-block;
+  letter-spacing: 0.12em;
 }
 
 .ritz-card__pdf-btn {
@@ -184,12 +186,15 @@
   border:         1px solid var(--color-gold);
   color:          var(--color-gold);
   font-family:    var(--font-body);
-  font-size:      var(--text-subline);
+  font-size:      var(--text-small);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding:        0.35rem 0.9rem;
+  padding:        0.5rem 2rem;
   cursor:         pointer;
   touch-action:   manipulation;
+  display:        block;
+  width:          100%;
+  text-align:     center;
   transition:     background var(--duration-hover) var(--ease-settle),
                   color var(--duration-hover) var(--ease-settle);
 }
@@ -206,7 +211,7 @@
 
 .ritz-card__seasonal {
   font-family:  var(--font-body);
-  font-size:    var(--text-disclaimer);
+  font-size:    var(--text-micro);
   font-weight:  300;
   line-height:  1.6;
   color:        var(--color-text-muted);
@@ -216,7 +221,7 @@
 
 .ritz-card__disclaimer {
   font-family:    var(--font-body);
-  font-size:      var(--text-disclaimer);
+  font-size:      var(--text-micro);
   font-weight:    400;
   color:          var(--color-disclaimer);
   letter-spacing: 0.04em;
@@ -234,16 +239,15 @@
   justify-content: center;
   text-align:     center;
   gap:            1.25rem;
-  padding-block:  clamp(2rem, 6vw, 3.5rem);
 }
 
 .ritz-card__quote-text {
   font-family:  var(--font-display);
-  font-size:    clamp(1rem, 2.2vw, 1.3rem);
+  font-size:    var(--text-headline);
   font-weight:  400;
   font-style:   italic;
   line-height:  1.55;
-  color:        var(--color-text-primary);
+  color:        var(--color-forest);
   letter-spacing: 0.01em;
   margin:       0;
   max-width:    34ch;
@@ -251,7 +255,7 @@
 
 .ritz-card__quote-attr {
   font-family:    var(--font-body);
-  font-size:      var(--text-subline);
+  font-size:      var(--text-small);
   font-weight:    400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -260,7 +264,7 @@
 }
 
 .ritz-card__quote-arrow {
-  font-size:   1.5rem;
+  font-size:   var(--text-headline);
   color:       var(--color-gold);
   opacity:     0.7;
   animation:   ritz-arrow-pulse 2.5s ease-in-out infinite;
@@ -274,7 +278,7 @@
 
 .ritz-card__quote-cta {
   font-family:    var(--font-body);
-  font-size:      var(--text-label);
+  font-size:      var(--text-small);
   font-weight:    400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -315,7 +319,7 @@
 
 .ritz-card__progress-label {
   font-family:    var(--font-display);
-  font-size:      1.5rem;
+  font-size:      var(--text-headline);
   font-weight:    400;
   font-style:     italic;
   letter-spacing: 0.08em;
@@ -330,11 +334,11 @@
   }
 
   .ritz-card__name {
-    font-size: clamp(1.4rem, 6vw, 1.75rem);
+    font-size: var(--text-drink-name);
   }
 
   .ritz-card__story {
-    font-size: var(--text-subline);
+    font-size: var(--text-small);
   }
 
   .ritz-card__details {
@@ -342,11 +346,11 @@
   }
 
   .ritz-card__detail-label {
-    font-size: 0.7rem;
+    font-size: var(--text-micro);
   }
 
   .ritz-card__detail-value {
-    font-size: var(--text-subline);
+    font-size: var(--text-small);
   }
 
   .ritz-card__footer {

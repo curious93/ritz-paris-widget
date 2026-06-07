@@ -32,15 +32,12 @@
   --font-body:    'Jost', 'Optima', system-ui, sans-serif;
   --font-mono:    'Courier Prime', 'Courier New', monospace;
 
-  /* Schriftgrößen */
-  --text-drink-name:  clamp(1.75rem, 4vw, 2.5rem);
-  --text-headline:    clamp(1.25rem, 2.5vw, 1.75rem);
-  --text-intro:       1.125rem;
-  --text-body:        1rem;
-  --text-label:       0.875rem;
-  --text-subline:     0.8125rem;
-  --text-disclaimer:  0.75rem;
-  --text-code:        0.9375rem;
+  /* Schriftgrößen — 5 Stufen */
+  --text-drink-name:  clamp(1.75rem, 4vw, 2.5rem);  /* Drink-Name */
+  --text-headline:    clamp(1.1rem, 2vw, 1.45rem);   /* Intro-Headline */
+  --text-body:        0.9375rem;                      /* Fließtext, Details */
+  --text-small:       0.8125rem;                      /* Labels, Buttons, Sublines */
+  --text-micro:       0.75rem;                        /* Disclaimer, Code, Lang-Switch */
 
   /* Animation — aus styles.md */
   --ease-settle:      cubic-bezier(0.25, 0.46, 0.45, 0.94);

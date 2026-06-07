@@ -17,6 +17,8 @@ interface ResultCardProps {
   t: Translations['card']
   /** Zitat-Texte für den initialen Zustand */
   quote: Translations['quote']
+  /** PDF-Texte */
+  pdf: Translations['pdf']
 }
 
 /**
@@ -31,9 +33,10 @@ interface ResultCardProps {
  * @param props.touched - Welche Regler bereits berührt wurden
  * @param props.t - Lokalisierte Texte für Labels und Buttons
  * @param props.quote - Zitat-Texte für den initialen Zustand
+ * @param props.pdf - Lokalisierte PDF-Texte
  * @returns Die Ergebnis-Card
  */
-export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps) {
+export function ResultCard({ drink, state, touched, t, quote, pdf }: ResultCardProps) {
   const code = generateCode(state)
   const [downloading, setDownloading] = useState(false)
 
@@ -42,7 +45,7 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
 
   const handleDownload = async () => {
     setDownloading(true)
-    await downloadPdf(drink, state)
+    await downloadPdf(drink, state, t, pdf)
     setDownloading(false)
   }
 
@@ -82,8 +85,9 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
 
       {/* ── Drink-Name ─────────────────────────────────────────────── */}
       <div className="ritz-card__header">
-        <p className="ritz-card__eyebrow">{t.eyebrow}</p>
-        <p className="ritz-card__subeyebrow">{t.subeyebrow}</p>
+        <p className="ritz-card__eyebrow">
+          {t.eyebrow} <span className="ritz-card__subeyebrow">{t.subeyebrow}</span>
+        </p>
         <h2 className="ritz-card__name">{drink.name}</h2>
         <div className="ritz-card__divider" aria-hidden="true" />
       </div>
@@ -116,22 +120,27 @@ export function ResultCard({ drink, state, touched, t, quote }: ResultCardProps)
 
       {/* ── Footer ─────────────────────────────────────────────────── */}
       <div className="ritz-card__footer">
-        <div className="ritz-card__footer-top">
-          <p className="ritz-card__code" aria-label={code}>{code}</p>
-          <button
-            type="button"
-            className="ritz-card__pdf-btn"
-            onClick={handleDownload}
-            disabled={downloading}
-            aria-label={t.pdfButton}
-          >
-            {downloading ? t.pdfLoading : t.pdfButton}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="ritz-card__pdf-btn"
+          onClick={handleDownload}
+          disabled={downloading}
+          aria-label={t.pdfButton}
+        >
+          {downloading ? t.pdfLoading : t.pdfButton}
+        </button>
         <p className="ritz-card__seasonal">{t.seasonalNote}</p>
-        {drink.abvLevel === 'full' && (
-          <p className="ritz-card__disclaimer" role="note">{t.disclaimer}</p>
-        )}
+        <p
+          className="ritz-card__disclaimer"
+          role="note"
+          aria-hidden={drink.abvLevel !== 'full'}
+          style={{ visibility: drink.abvLevel === 'full' ? 'visible' : 'hidden' }}
+        >
+          {t.disclaimer}
+        </p>
+        <p className="ritz-card__code-footnote">
+          {t.codeLabel}: <span>{code}</span>
+        </p>
       </div>
 
     </section>
