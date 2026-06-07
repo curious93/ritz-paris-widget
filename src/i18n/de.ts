@@ -11,7 +11,7 @@ export const de: Translations = {
     {
       question: 'Ihr Modus',
       positions: [
-        { label: 'Sans alcool',       subline: 'Ein vollständiger Genuss ohne Alkohol — Tee, Verjus, Frucht und Kräuter in präzisen Kompositionen.' },
+        { label: 'Alkoholfrei',        subline: 'Ein vollständiger Genuss ohne Alkohol — Tee, Verjus, Frucht und Kräuter in präzisen Kompositionen.' },
         { label: 'Leicht',            subline: 'Wenig Alkohol, viel Charakter — Vermouth, Champagne oder Apéritif für einen leichten, eleganten Abend.' },
         { label: 'Signature 18+',     subline: 'Die klassische Bar-Erfahrung — Gin, Cognac, Calvados, Rum oder Vodka als Fundament.' },
       ],
